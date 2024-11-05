@@ -1,0 +1,42 @@
+@media print {
+    /* Réinitialiser les styles pour l'impression */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Définir la taille de la page et les marges */
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    @page {
+      size: A4;
+      margin: 1cm;
+    }
+    
+    /* Réduire la taille des éléments pour qu'ils tiennent sur la page */
+    .xp {
+      font-size: 12px;
+      flex-direction: row;
+    }
+    .info, .liste {
+      font-size: 12px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 18px;
+    }
+    
+    /* Enlever les éléments qui ne sont pas nécessaires pour l'impression */
+    .burger-menu-btn, .burger-menu, .photo-profile, .profile {
+      display: none;
+    }
+    
+    /* Ajouter des styles pour les éléments qui doivent être imprimés */
+    .print-only {
+      display: block;
+    }
+  }

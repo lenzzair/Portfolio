@@ -1,0 +1,100 @@
+@charset "UTF-8";	
+*, *::before, *::after
+{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	
+}
+body{
+
+    font-family: arial;
+	font-size: 1.1em;   
+	font-family: 'Roboto', sans-serif;
+}
+h1{
+	
+	font-size: 3em;
+	font-weight:bold;
+	margin-top: 1em;
+	font-family: 'Questrial', sans-serif;
+	
+}
+h2{
+	font-size: 2.1em;
+	text-transform: uppercase;
+	margin-top: 0.5em;
+}
+h3{
+	
+	font-size: 1.4em;
+	text-transform: uppercase;
+	
+}
+h4{
+	font-size: 1.2em;
+	margin: 1em;
+}
+h2 , h3{
+	
+	font-weight:bold;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	font-family: 'Questrial', sans-serif;
+}
+header p {
+	font-size: 2.1em;
+	margin-left: 1em;
+	margin-top: 0em;
+}
+p{
+	margin-top: 1.8em;
+	
+}
+ul , ol{
+	margin-bottom: 1em;
+	margin-left: 1.2em;
+	
+}
+ul ol , ol ul , ol ol , ul ul{
+	
+	margin-bottom: 0.5em;
+	margin-left: 1.2em;  
+}
+li li{
+	
+	margin-top: 0.2em;
+	
+}
+aside .contact p{
+	font-size: 1.1em;
+	
+}
+li{
+	
+	margin-top: 0.5em;
+	font-size: 1.1em;
+
+}
+figure{
+	
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 2em;	
+}
+
+figcaption{
+	
+	
+	font-style: italic;
+	font-weight: bold;
+	margin-top: 0.5em;
+}
+figure img{
+	
+	max-width: 100%;
+}
+strong{
+	
+	font-weight: bold;
+}
