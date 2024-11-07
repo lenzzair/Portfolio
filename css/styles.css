@@ -398,11 +398,11 @@ h2 {
     text-align: center;
 
 }
-.overlay .li{
-    color: white;
-}
+
 .carte .card .overlay li{
     color: white;
+    text-align: left;
+
 }
 .carte {
     --index0: calc(var(--index) - 1);
