@@ -62,11 +62,13 @@ ul ol , ol ul , ol ol , ul ul{
 	margin-bottom: 0.5em;
 	margin-left: 1.2em;  
 }
+
 li li{
 	
 	margin-top: 0.2em;
 	line-height: 1.5;
 }
+
 li{
 	line-height: 1.5;
 	margin-top: 0.5em;
@@ -101,5 +103,5 @@ a{
 }
 a:hover {
     color: #1abc9c; /* Changement de couleur au survol */
-    text-decoration: underline; /* Souligné au survol */
+
 }
