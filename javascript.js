@@ -6,19 +6,14 @@ BOUTON_PROJET_1.addEventListener("change", affiche_projet);
 BOUTON_PROJET_2.addEventListener("change", affiche_projet);
 BOUTON_PROJET_3.addEventListener("change", affiche_projet);
 
-document.getElementById("button_1").addEventListener("click", competence);
-document.getElementById("button_2").addEventListener("click", competence);
-document.getElementById("button_3").addEventListener("click", competence);
-document.getElementById("button_4").addEventListener("click", competence);
-document.getElementById("button_5").addEventListener("click", competence);
-document.getElementById("button_6").addEventListener("click", competence);
+
 
 alert("Bonjour, ceci est un site web en construction. Des changements auront lieu prochainement, et la version mobile n'est pas encore adaptée. Merci.");
 
 // Tableau des images à précharger
 const imagesToPreload = [
-    "./image/card_infra.webp", 
-    "./image/card_projet_prog.webp", 
+    "./image/card_infra.webp",
+    "./image/card_projet_prog.webp",
     "./image/card_raberrypi.webp"
 ];
 
@@ -36,9 +31,9 @@ function preloadImages(imageArray) {
 }
 
 // Préchargement des images lorsque la page est chargée
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     preloadImages(imagesToPreload);
-    
+
 });
 
 
@@ -116,3 +111,22 @@ function competence(event) {
             break;
     }
 }
+
+
+
+// Écoutez le changement sur les boutons radio
+document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+    radio.addEventListener('change', () => {
+        // Cache toutes les overlays
+        document.querySelectorAll('.overlay').forEach((overlay) => {
+            overlay.style.opacity = 0; // Réinitialiser les overlays
+        });
+
+        // Affiche l'overlay correspondant au radio sélectionné
+        const overlayId = radio.id.replace('card_inputs', 'overlay');
+        const overlay = document.getElementById(overlayId);
+        if (overlay) {
+            overlay.style.opacity = 1; // Rendre l'overlay visible
+        }
+    });
+});

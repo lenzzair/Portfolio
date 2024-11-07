@@ -15,7 +15,7 @@ body{
 h1{
 	
 	font-size: 4.5em;
-	font-weight:bold;
+	font-weight: 700;
 	margin-top: 1em;
 	font-family: 'Questrial', sans-serif;
 	
@@ -23,6 +23,7 @@ h1{
 h2{
 	font-size: 2.3em;
 	text-transform: capitalize;
+	color: #2c3e50;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
@@ -37,8 +38,9 @@ h2 , h3{
 	font-weight:bold;
 	margin-top: 1em;
 	margin-bottom: 0.5em;
+	color: #2c3e50;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+	
 }
 header p {
 	font-size: 2em;
@@ -47,7 +49,8 @@ header p {
 }
 p{
 	margin-top: 1em;
-	
+	line-height: 1.75;
+	text-indent: 2em;
 }
 ul , ol{
 	margin-bottom: 1em;
@@ -62,10 +65,10 @@ ul ol , ol ul , ol ol , ul ul{
 li li{
 	
 	margin-top: 0.2em;
-	
+	line-height: 1.5;
 }
 li{
-	
+	line-height: 1.5;
 	margin-top: 0.5em;
 
 }
@@ -90,4 +93,13 @@ figure img{
 strong{
 	
 	font-weight: bold;
+}
+a{
+	text-decoration: none; /* Retirer le souligné par défaut */
+	font-weight: 600; /* Légèrement gras pour les liens */
+    transition: color 0.3s ease; /* Effet de transition pour les interactions */
+}
+a:hover {
+    color: #1abc9c; /* Changement de couleur au survol */
+    text-decoration: underline; /* Souligné au survol */
 }
