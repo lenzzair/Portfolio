@@ -14,7 +14,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="./javascript.js"></script>
-
+    <script defer src="./animation.js"></script>
     <title>Portfolio Lenny LAMBERT</title>
 
 </head>
@@ -66,25 +66,31 @@
         </div>
 
     </div>
-    <section id="Apropos" class="bio">
+    <section id="Apropos" class="bio show-animate">
         <h2>A propos:</h2>
-        <div class="info_propos scroll">
-            <p>Étudiant en 2e année de BUT <strong>Réseaux Informatiques</strong> , Télécommunications et
-                <strong>cybersécurité</strong> à l'IUT d'Annecy, je
-                suis à la recherche d'un <strong>stage</strong> ou d'une <strong>alternance</strong> pour mettre en
-                pratique mes compétences techniques.
-                Passionné par la cybersécurité et les <strong>nouvelles technologies</strong>, je suis motivé, curieux
-                et prêt à m'investir pleinement
-                dans des <strong>projets concrets</strong> pour enrichir mon expérience professionnelle
-            </p>
-            <img src="./image/IMG_0950.webp">
+        <div class="bio_enssemble">
+            <div class="info_propos animate_1 animate">
+                <p>Étudiant en 2e année de BUT <strong>Réseaux Informatiques</strong> , Télécommunications et
+                    <strong>cybersécurité</strong> à l'IUT d'Annecy, je
+                    suis à la recherche d'un <strong>stage</strong> ou d'une <strong>alternance</strong> pour mettre en
+                    pratique mes compétences techniques.
+                    Passionné par la cybersécurité et les <strong>nouvelles technologies</strong>, je suis motivé,
+                    curieux
+                    et prêt à m'investir pleinement
+                    dans des <strong>projets concrets</strong> pour enrichir mon expérience professionnelle
+                </p>
+
+            </div>
+            <div class="bio_img">
+                <img class="animate_2 animate" src="./image/IMG_0950.webp">
+            </div>
         </div>
     </section>
 
-    <section id="projet" class="projets">
+    <section id="projet" class="projets show-animate">
         <h2>Projets:</h2>
         <div class="projet_contenu">
-            <div class="bouton_projet">
+            <div class="bouton_projet animate">
                 <label for="nom-projet1" id="label_1">Réseaux d'entreprise</label>
                 <input id="nom-projet1" type="radio" name="radio_compt">
 
@@ -124,8 +130,8 @@
         </div>
     </section>
 
-    
-    <section class="container" id="container">
+
+    <section class="containers" id="container">
         <h2 class="compt_h2">Compétences:</h2>
         <ul id="cards_anim">
 
@@ -141,7 +147,7 @@
                     <div class="voirPlus" id="VoirPlus_1">
                         <input id="card_inputs_1" type="radio" name="radio_cards">
                         <label for="card_inputs_1" id="label_1" class="label">Voir plus</label>
-                        
+
                     </div>
                 </div>
 
@@ -176,7 +182,7 @@
                     <div class="voirPlus" id="VoirPlus_2">
                         <input id="card_inputs_2" type="radio" name="radio_cards">
                         <label for="card_inputs_2" id="label_2" class="label">Voir plus</label>
-                        
+
                     </div>
                 </div>
 
@@ -205,7 +211,7 @@
                     <div class="voirPlus" id="VoirPlus_3">
                         <input id="card_inputs_3" type="radio" name="radio_cards">
                         <label for="card_inputs_3" id="label_3" class="label">Voir plus</label>
-                        
+
                     </div>
                 </div>
 
@@ -232,8 +238,8 @@
                         événements spécialisés en cybersécurité.</p>
                     <div class="voirPlus" id="VoirPlus_4">
                         <input id="card_inputs_4" type="radio" name="radio_cards">
-                        <label for="card_inputs_4" id="label_4" class="label" >Voir plus</label>
-                        
+                        <label for="card_inputs_4" id="label_4" class="label">Voir plus</label>
+
                     </div>
                 </div>
                 <figure class="card img_card">
@@ -261,7 +267,7 @@
                     <div class="voirPlus" id="VoirPlus_5">
                         <input id="card_inputs_5" type="radio" name="radio_cards">
                         <label for="card_inputs_5" id="label_2" class="label">Voir plus</label>
-                        
+
                     </div>
                 </div>
                 <figure class="card img_card">
@@ -291,8 +297,8 @@
                         l'utilisation de MATLAB pour la modélisation et l’analyse de systèmes de communication.</p>
                     <div class="voirPlus" id="VoirPlus_6">
                         <input id="card_inputs_6" type="radio" name="radio_cards">
-                        <label for="card_inputs_6" id="label_6" class="label" >Voir plus</label>
-                        
+                        <label for="card_inputs_6" id="label_6" class="label">Voir plus</label>
+
                     </div>
 
                 </div>
@@ -316,8 +322,8 @@
 
 
     </section>
-    <section class="softSkills">
-        <h2>Mes Softs skils</h2>
+    <section class="softSkills show-animate">
+        <h2 class="animate">Mes Softs skils</h2>
 
 
     </section>

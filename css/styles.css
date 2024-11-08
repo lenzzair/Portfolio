@@ -8,7 +8,7 @@
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
-
+    overflow-x: hidden;
 }
 
 
@@ -160,11 +160,11 @@ body {
     background-repeat: no-repeat;
     border-radius: 15px;
     width: 45%;
-    height: 35em;
+    height: 30em;
     display: flex;
     float: left;
-    margin-top: 10em;
-    margin-left: 5em;
+    margin-top: 9em;
+    margin-left: 4.2em;
 }
 
 
@@ -235,13 +235,15 @@ h2 {
     margin-left: 5em;
     display: flex;
     flex-direction: column;
-    margin: 10em 0 0 3em;
+    margin: 10em 0 0 0;
 }
 
 .bio h2 {
     color: black;
     border-bottom: 2px solid #2c2c2cb5;
-    text-align: left;
+    text-align: right;
+    width: 75%;
+    margin-left: 5em;
 }
 
 .info_propos {
@@ -251,9 +253,14 @@ h2 {
     justify-content: space-between;
     margin: 1em;
 }
+.bio_enssemble{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .bio p {
-    width: 45%;
+    width: 70%;
     margin-left: 2.5em;
     text-align: center;
     font-size: 1.2em;
@@ -270,7 +277,7 @@ h2 {
 .bio img {
     width: 13em;
     height: auto;
-    margin-right: 15%;
+    margin-right: 2em;
     border-radius: 50%;
 }
 
@@ -279,7 +286,7 @@ h2 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+   
 }
 
 .projets h2 {
@@ -296,7 +303,7 @@ h2 {
 .bouton_projet {
     display: flex;
     flex-direction: column;
-    margin: 3em 1em;
+   
     margin-left: 5em;
 }
 
@@ -306,7 +313,7 @@ h2 {
     border: none;
     color: white;
     font-size: 16px;
-    margin: 2.5em 0 0 1em;
+    margin: 3em 0 0 1em;
     padding: 1em 2em;
     border-radius: 3em;
     cursor: pointer;
@@ -331,7 +338,7 @@ h2 {
     box-shadow: inset 2px 2px 15px rgba(0, 0, 0, 0.2); /* Ombre intérieure pour l'effet de clic */
 }
 .bouton-actif {
-    border: 3px solid #1c73a8 !important;
+    border: 3px solid #a90f0fd9 !important;
     transition: all 0.3s ease !important;
 }
 @keyframes pulse {
@@ -396,9 +403,8 @@ h2 {
 .compt_h2 {
 
     color: black;
-    margin-top: 8em;
-    border-bottom: 2px solid #2c2c2cb5;
-   
+    margin-top: 7em;
+    text-decoration: underline 2px solid #2c2c2cb5;;
 
 }
 
@@ -481,7 +487,8 @@ h2 {
 .carte {
     position: sticky;
     width: 80%;
-    top: 0;
+    top: 2.5em;
+    margin-bottom: 0.5em;
     padding-top: calc(var(--index)* var(--card-top-offset));
     display: flex;
     justify-content: space-between;
@@ -491,7 +498,7 @@ h2 {
 }
 
 #cards_anim {
-    --numcards: 4;
+    --numcards: 6;
     view-timeline-name: --cards-element-scrolls-in-body;
     display: flex;
     flex-direction: column;
@@ -612,4 +619,18 @@ input[type="radio"]:checked:hover + .label {
     mask-repeat: no-repeat;
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
+}
+.bio .animate_1 {
+    transform: translateX(-100%) ;
+}
+.bio .animate_2 {
+    transform: translateX(150%) ;
+}
+.bio.show-animate .animate{
+    transform: translateX(0) ;
+
+}
+section .animate{
+    transition: 1s;
+    
 }
