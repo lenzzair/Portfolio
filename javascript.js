@@ -18,7 +18,9 @@ alert("Bonjour, ceci est un site web en construction. Des changements auront lie
 const imagesToPreload = [
     "./image/card_infra.webp",
     "./image/card_projet_prog.webp",
-    "./image/card_raberrypi.webp"
+    "./image/card_raberrypi.webp",
+    "./image/card_appMobile.webp",
+    "./image/card_api.webp"
 ];
 
 
@@ -107,14 +109,14 @@ function affiche_projet(event) {
         case "nom-projet4":
             document.getElementById("h3_update").innerHTML = "Développement d’une application Android communicante"
             document.getElementById("para_update").innerHTML = "Dans le cadre d'une SAÉ, je développe une application Android sous Cordova permettant de récupérer et d’exploiter des informations via une API. Cette application intègre plusieurs fonctionnalités système du téléphone, comme la caméra et le GPS, pour offrir une expérience utilisateur complète.<p>Mon objectif personnel est de permettre à l’application de gérer et surveiller mon serveur web Raspberry Pi en temps réel en récupérant des informations système via une API dédiée. L'application affichera des données telles que l’utilisation du CPU, l’espace disque, la mémoire, l’état réseau, et les logs du serveur.</p>";
-            document.getElementById("img_id_1").src = preloadedImages[2].src;
+            document.getElementById("img_id_1").src = preloadedImages[3].src;
             document.getElementById("text_1").innerHTML = "<ul><li class='li_style'>Développement mobile sous Cordova </li><ul><li>Intégration d’API</li><li>Utilisation des fonctionnalités système </li><li class='li_style'>Automatisation et administration système</li><li >Surveillance serveur</li></ul></ul>";
             break;
 
         case "nom-projet5":
             document.getElementById("h3_update").innerHTML = "Développement d'une API pour la récupération d'informations système et réseau"
             document.getElementById("para_update").innerHTML = "Dans le cadre d’un projet personnel en cours, je développe une API permettant de récupérer des informations système et réseau depuis mon serveur Raspberry Pi. Ce projet est étroitement lié à mon autre projet de création d'une application Android, qui exploitera cette API pour accéder aux données en temps réel. L'API fournit des informations détaillées sur l'état du CPU, la mémoire, le disque, le réseau, ainsi que les logs du serveur, permettant ainsi une surveillance complète et centralisée.";
-            document.getElementById("img_id_1").src = preloadedImages[2].src;
+            document.getElementById("img_id_1").src = preloadedImages[4].src;
             document.getElementById("text_1").innerHTML = "<ul><li>Créer une API robuste permettant la récupération sécurisée d’informations système et réseau</li><li>Fournir une interface fiable pour l'application Android, qui interrogera l'API pour obtenir des informations en temps réel</li><li>Assurer la sécurité de l'API pour éviter tout accès non autorisé aux données sensibles du serveur<li>Utilisation des fonctionnalités système </li></ul>";
             break;
 

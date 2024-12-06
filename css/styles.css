@@ -636,3 +636,9 @@ section .animate{
     transition: transform 0.7s ease-out;
     
 }
+
+.softSkills{
+    margin: 10em 2em;
+    color: black;
+}
+
