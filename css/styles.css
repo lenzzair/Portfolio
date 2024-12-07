@@ -656,40 +656,47 @@ section .animate{
     align-items: flex-end;
     transition: .6s cubic-bezier(.28,-0.03,0,.99);
     box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+    
+    
 }
 .card_ss > .row {
     color: white;
     display: flex;
     flex-wrap: nowrap;
+    font-family: cursive;
+
 }
-.card_ss > .row > .icon {
+.card_ss  .icon {
     background: #223;
     color: white;
     border-radius: 50%;
     width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 15px;
+    margin-top: 13em;
 }
-.card_ss > .row > .description {
+.card_ss .description {
     display: flex;
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
-    height: 80px;
-    width: 520px;
+    height: auto;
+    width: 28em;
     opacity: 0;
     transform: translateY(30px);
     transition-delay: .3s;
     transition: all .3s ease;
 }
 .description p {
-    color: #b0b0ba;
+    color: black;
     padding-top: 5px;
 }
-.description h4 {
+.description h3 {
     text-transform: uppercase;
+    color: black;
 }
 .container_ss input {
     display: none;
@@ -704,7 +711,8 @@ section .animate{
 }
 
 .card_ss[for="c1"] {
-    background-image: url('./../image/card_php.webp');
+    background-image: url('./../image/SS_travaille_equipe.webp');
+
 }
 .card_ss[for="c2"] {
     background-image: url('./../image/card_ad.webp');
@@ -713,5 +721,6 @@ section .animate{
 .soft_skills{
     display: flex;
     justify-content: center;
-    margin-top: 4em;
+    flex-direction: column;
+    margin: 4em 0;
 }
