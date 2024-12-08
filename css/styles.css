@@ -656,15 +656,34 @@ section .animate{
     align-items: flex-end;
     transition: .6s cubic-bezier(.28,-0.03,0,.99);
     box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+    position: relative;
     
     
 }
+.card_ss::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent sur toute la carte */
+    z-index: 1; /* S'assure que l'image reste visible en arrière-plan */
+    opacity: 0; /* Invisible par défaut */
+    transition: opacity 0.3s ease;
+}
+.card_ss:hover::before,
+.container_ss input:checked + label::before {
+    opacity: 1; /* Montre le fond sombre au survol ou si la carte est sélectionnée */
+}
 .card_ss > .row {
+    position: relative;
+    z-index: 2; /* Place le contenu au-dessus du fond semi-transparent */
     color: white;
     display: flex;
     flex-wrap: nowrap;
     font-family: cursive;
-
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ajoute une ombre au texte */
 }
 .card_ss  .icon {
     background: #223;
@@ -676,7 +695,7 @@ section .animate{
     justify-content: center;
     align-items: center;
     margin: 15px;
-    margin-top: 13em;
+    margin-top: 18.5em;
 }
 .card_ss .description {
     display: flex;
@@ -687,16 +706,22 @@ section .animate{
     width: 28em;
     opacity: 0;
     transform: translateY(30px);
-    transition-delay: .3s;
-    transition: all .3s ease;
+    transition-delay: 0.3s;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    color: white; /* Couleur adaptée au fond sombre */
+   /* Fond semi-transparent sous le texte */
+    padding: 1em;
+    border-radius: 1rem; /* Ajoute un contour arrondi */
+    z-index: 2; /* Place le texte au-dessus de l'image */
 }
 .description p {
-    color: black;
+    color: #ddd; /* Texte secondaire légèrement éclairci */
     padding-top: 5px;
 }
 .description h3 {
     text-transform: uppercase;
-    color: black;
+    color: white;
 }
 .container_ss input {
     display: none;
@@ -711,11 +736,11 @@ section .animate{
 }
 
 .card_ss[for="c1"] {
-    background-image: url('./../image/SS_travaille_equipe.webp');
+    background-image: url('./../image/SS_tavailleequipe.webp');
 
 }
 .card_ss[for="c2"] {
-    background-image: url('./../image/card_ad.webp');
+    background-image: url('./../image/SS_discipline.webp');
 }
 
 .soft_skills{
@@ -723,4 +748,8 @@ section .animate{
     justify-content: center;
     flex-direction: column;
     margin: 4em 0;
+    
+}
+.soft_skills h2 {
+    color: #2c3e50 !important;
 }
