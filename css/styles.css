@@ -154,9 +154,9 @@ body {
 
 /*====================image intro============================*/
 
-.caroussel {
+/* .caroussel {
 
-    background-image: url(./../image/image_intro2.webp);
+    background-image: url(./../image/hero-image.webp);
     background-repeat: no-repeat;
     border-radius: 15px;
     width: 45%;
@@ -165,7 +165,7 @@ body {
     float: left;
     margin-top: 9em;
     margin-left: 4.2em;
-}
+} */
 
 
 .reseaux_sociaux {
@@ -183,11 +183,11 @@ body {
     width: 4.5rem;
     height: 4.5rem;
     background: transparent;
-    border: 2px solid rgb(0, 94, 255);
+    border: 2px solid rgb(138, 22, 53);
     font-size: 2.5rem;
     border-radius: 50%;
     margin: 1em 0 1.5em 1em;
-    color: rgb(0, 94, 255);
+    color: rgb(138, 22, 53);
     transition: 0.3s ease-in-out;
 }
 
@@ -201,7 +201,7 @@ body {
 /*      Hero image      */
 
 .hero_image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../image/hero_image_portfolio.webp");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../image/hero-image2.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -218,13 +218,16 @@ h1 {
     margin-top: 0em;
     text-align: center;
     padding-top: 2em;
-
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+   
 }
-
+.hero_texte h2{
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
 h2 {
     color: aliceblue;
     text-align: center;
-
+    
 }
 
 /*      Hero image      */
@@ -708,7 +711,7 @@ section .animate{
     transform: translateY(30px);
     transition-delay: 0.3s;
     transition: all 0.3s ease;
-    font-size: 1.1em;
+    font-size: 1em;
     color: white; /* Couleur adaptée au fond sombre */
    /* Fond semi-transparent sous le texte */
     padding: 1em;
@@ -748,7 +751,7 @@ section .animate{
     justify-content: center;
     flex-direction: column;
     margin: 4em 0;
-    
+    align-items: center;
 }
 .soft_skills h2 {
     color: #2c3e50 !important;
