@@ -154,18 +154,7 @@ body {
 
 /*====================image intro============================*/
 
-/* .caroussel {
 
-    background-image: url(./../image/hero-image.webp);
-    background-repeat: no-repeat;
-    border-radius: 15px;
-    width: 45%;
-    height: 30em;
-    display: flex;
-    float: left;
-    margin-top: 9em;
-    margin-left: 4.2em;
-} */
 
 
 .reseaux_sociaux {
@@ -180,14 +169,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5.5rem;
+    height: 5.5rem;
     background: transparent;
-    border: 2px solid rgb(138, 22, 53);
+    border: 2px solid rgb(227, 11, 34);
     font-size: 2.5rem;
     border-radius: 50%;
-    margin: 1em 0 1.5em 1em;
-    color: rgb(138, 22, 53);
+    margin: 1.5em 0 1.5em 1em;
+    color: rgb(227, 11, 34);
     transition: 0.3s ease-in-out;
 }
 
@@ -219,10 +208,12 @@ h1 {
     text-align: center;
     padding-top: 2em;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    -webkit-text-stroke: 1px black;
    
 }
 .hero_texte h2{
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    -webkit-text-stroke: 1px black;
 }
 h2 {
     color: aliceblue;
@@ -685,7 +676,6 @@ section .animate{
     color: white;
     display: flex;
     flex-wrap: nowrap;
-    font-family: cursive;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ajoute une ombre au texte */
 }
 .card_ss  .icon {
@@ -717,6 +707,7 @@ section .animate{
     padding: 1em;
     border-radius: 1rem; /* Ajoute un contour arrondi */
     z-index: 2; /* Place le texte au-dessus de l'image */
+   
 }
 .description p {
     color: #ddd; /* Texte secondaire légèrement éclairci */
