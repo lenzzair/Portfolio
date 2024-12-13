@@ -632,10 +632,11 @@ section .animate{
 }
 
 .container_ss {
-    height: 400px;
+    height: 30em;
     display: flex;
     flex-wrap: nowrap;
     justify-content: start;
+    margin-top: 3em;
 }
 
 .card_ss {
@@ -677,6 +678,7 @@ section .animate{
     display: flex;
     flex-wrap: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ajoute une ombre au texte */
+    height: 30em;
 }
 .card_ss  .icon {
     background: #223;
@@ -688,7 +690,10 @@ section .animate{
     justify-content: center;
     align-items: center;
     margin: 15px;
-    margin-top: 18.5em;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
 }
 .card_ss .description {
     display: flex;
@@ -707,7 +712,7 @@ section .animate{
     padding: 1em;
     border-radius: 1rem; /* Ajoute un contour arrondi */
     z-index: 2; /* Place le texte au-dessus de l'image */
-   
+   margin-left: 3em;
 }
 .description p {
     color: #ddd; /* Texte secondaire légèrement éclairci */
@@ -721,7 +726,7 @@ section .animate{
     display: none;
 }
 .container_ss input:checked + label {
-    width: 600px;
+    width: 40em;
 }
 
 .container_ss input:checked + label .description {
@@ -736,7 +741,9 @@ section .animate{
 .card_ss[for="c2"] {
     background-image: url('./../image/SS_discipline.webp');
 }
-
+.card_ss[for="c3"] {
+    background-image: url('./../image/SS_curiosite.webp');
+}
 .soft_skills{
     display: flex;
     justify-content: center;
