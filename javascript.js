@@ -44,20 +44,7 @@ window.addEventListener('load', function () {
 
 
 
-function burgerMenu() {
 
-    const burgerMenuBtn = document.querySelector('.burger-menu-btn')
-    const burgerMenuBtnIcon = document.querySelector('.burger-menu-btn .fa-bars')
-    const burgerMenu = document.querySelector('.burger-menu')
-
-    burgerMenuBtn.onclick = function () {
-
-        burgerMenu.classList.toggle('open')
-        const isOpen = burgerMenu.classList.contains('open')
-        burgerMenuBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-
-    }
-}
 
 function affiche_projet(event) {
     console.log(event.target.id);
