@@ -1,47 +1,77 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  /* Avoid scrolling due to animation */
+}
+
+/* Background Animation */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1d1f27;
+  /* Fallback background color */
+  z-index: -1;
+}
+
+/* Centered Text Content */
+.centered-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  /* Transparent black */
+  padding: 20px 40px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  /* Blur effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.centered-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.centered-content p {
+  font-size: 1.2rem;
+}
+
+.content{
+  margin-top: 5em;
+}
+.dir{
+  margin: 2em;
+  font-size: 1.5em;
+
+}
+.folder_wu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.folder_wu svg{
+  width: 3em;
+  height: auto;
   
-  body, html {
-    width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    overflow: hidden; /* Avoid scrolling due to animation */
-  }
-  
-  /* Background Animation */
-  #particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #1d1f27; /* Fallback background color */
-    z-index: -1;
-  }
-  
-  /* Centered Text Content */
-  .centered-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.5); /* Transparent black */
-    padding: 20px 40px;
-    border-radius: 10px;
-    backdrop-filter: blur(10px); /* Blur effect */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  .centered-content h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
-  
-  .centered-content p {
-    font-size: 1.2rem;
-  }
-  
+}
+.active{
+  color: purple !important;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+  color: white !important;
+}
