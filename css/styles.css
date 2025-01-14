@@ -405,7 +405,10 @@ h2 {
     position: fixed !important; /* S'assure que le modal s'affiche correctement sur l'ensemble de l'écran */
     z-index: 1050; /* Priorité d'affichage élevée pour le modal */
 }
-
+.modal-title{
+    color: black !important;
+    text-shadow: none !important;
+}
 
 
 /* =========================== SOFT SKILLS =============================*/
