@@ -70,7 +70,7 @@ html {
   
 }
 .active{
-  color: purple !important;
+  color: rgb(7, 255, 82) !important;
 }
 .breadcrumb-item+.breadcrumb-item::before{
   color: white !important;
