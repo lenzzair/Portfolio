@@ -1,33 +1,34 @@
 /* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body, html {
-  overflow-y: auto; /* Permet le défilement vertical */
-  overflow-x: hidden; /* Empêche le défilement horizontal */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* Empêche le scroll horizontal */
 }
 
 /* Background Animation */
 #particles-js {
-  position: fixed; /* Fixe le fond par rapport à la fenêtre */
+
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #1d1f27; /* Fallback background color */
-  z-index: -1; /* Place derrière tout le reste */
-  pointer-events: none; /* Évite toute interaction avec le fond */
+  background: #1d1f27; 
+  z-index: -1; 
+  position: absolute;
+  pointer-events: none;
+
 }
 
 /* Centered Text Content */
 .centered-content {
+  position: relative;
   text-align: center;
   color: white;
   background: rgba(0, 0, 0, 0.5); /* Transparent black */
-  padding: 20px 40px;
+  padding: 2em;
   border-radius: 10px;
   backdrop-filter: blur(10px); /* Blur effect */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
