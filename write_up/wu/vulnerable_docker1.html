@@ -10,13 +10,20 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
+
     <script defer src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-    <script defer src="./../write_up.js"></script>
+
+
 
     <title>Write Up</title>
     <link rel="stylesheet" href="./../write_css.css">
     <link rel="stylesheet" href="./../wu/style_vulnDocker.css">
 </head>
+<script defer src="./../write_up.js"></script>
 
 <body>
     <nav class="navbar navbar-dark bg-dark fixed-top">
@@ -53,9 +60,9 @@
     </nav>
     <!-- Animation Background -->
     <div id="particles-js"></div>
-    <div class="centered-content">
+    <div class="centered-content container">
         <h1>Vulnérable Docker 1</h1>
-        <p>Découvrez mes write up, de machine vulnhub ou autre CTF sur ctftime</p>
+        <p>Write up d'une machine Docker vulnhub</p>
         <section class="content">
             <div class="row">
                 <div class="dir">
@@ -78,8 +85,14 @@
             <div class="row">
 
                 <div class="col">
-                    <p>Difficulté: Easy <i class="bi bi-circle-fill" style="color: green;"></i></p>
-                    <p>Difficulté: Hard <i class="bi bi-circle-fill" style="color: red;"></i></p>
+                    <p>Difficulté: Easy  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8" style="color: green;"/>
+                        </svg></p>
+                    <p>Difficulté: Hard  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8" style="color: red;"/>
+                        </svg></p>
                 </div>
 
                 <div class="col">
@@ -88,11 +101,53 @@
                         <li><a href="https://www.kali.org/tools/netdiscover/">netdiscover</a></li>
                         <li><a href="https://www.kali.org/tools/nmap/">nmap</a></li>
                         <li><a href="https://www.kali.org/tools/wpscan/">wpscan</a></li>
-                        <li><a href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php">php-reverse-shell github</a></li>
-                        <li><a href="https://excalidraw.com/mon-schema#json=8ZFw9mvc1Ze-HzG5BnrOG,1fjAGl0P9Y39ytEeAlca7g">Excalidraw schema perso docker</a></li>
+                        <li><a
+                                href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php">php-reverse-shell
+                                github</a></li>
+                        <li><a
+                                href="https://excalidraw.com/mon-schema#json=8ZFw9mvc1Ze-HzG5BnrOG,1fjAGl0P9Y39ytEeAlca7g">Excalidraw
+                                schema perso docker</a></li>
                         <li><a href="https://github.com/sensepost/reGeorg">reGeorg</a></li>
                     </ul>
                 </div>
             </div>
+
+            <section class="etape1">
+                <h2 class="--bs-primary-text-emphasis">Etape 1: Net Discover </h2>
+
+                <p class="para">Utilisation de l’outils <strong>netdiscover</strong> ( <a
+                        href="https://www.kali.org/tools/netdiscover/"> Kali Linux netdiscover | Kali Linux Tools </a>)
+                    pour pouvoir
+                    récupérer l’adresse ip de la machine cible.</p>
+
+                <img src="./img/netdiscover_vd.png" class="img-fluid" alt="Résultat du scan netdiscover">
+            </section>
+        </section>
+
+        <section class="etape2">
+            <h2 class="--bs-primary-text-emphasis">Etape 2: Scan de port sur la machine cible</h2>
+
+            <p class="para">
+                Je vais utiliser maintenant l’outils nmap (<a href="https://www.kali.org/tools/nmap/"> Kali Linux nmap |
+                    Kali Linux Tools</a> ) qui me permettre de
+                lister
+                les ports ouverts mais aussi les version de certains protocoles qui pourront m’aider a trouver certaine
+                vulnérabilité.
+            </p>
+
+
+            <pre><code class="language-bash">
+                sudo nmap -sV -sC -O -T5 -p- -oN discover.txt 192.168.56.104
+                
+                # -sV  -> Récupère la version des services
+                # -sC  -> Utilise les scripts nmap nse (utilisés pour détecter des vulnérabilités sur les ports)
+                # -O   -> Détection de l'OS
+                # -p-  -> Test tous les ports
+                # -oN  -> Écrit le résultat dans output.txt
+                </code></pre>
+
+            <p>! le port 2375 est ouvert que pour le mode esay ! </p>
         </section>
     </div>
+
+</body>

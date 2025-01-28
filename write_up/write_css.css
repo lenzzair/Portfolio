@@ -1,4 +1,8 @@
 /* General Reset */
+:root{
+  --title-color: blue;
+  
+}
 
 body, html {
   margin: 0;
@@ -17,7 +21,6 @@ body, html {
   height: 100%;
   background: #1d1f27; 
   z-index: -1; 
-  position: absolute;
   pointer-events: none;
 
 }
@@ -32,8 +35,8 @@ body, html {
   border-radius: 10px;
   backdrop-filter: blur(10px); /* Blur effect */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  margin: 0 auto; /* Centre horizontalement */
-  max-width: 900px; /* Limite la largeur pour un affichage lisible */
+  margin: 5em auto 0em auto; /* Centre horizontalement */
+   
 }
 
 .centered-content h1 {
