@@ -1,6 +1,7 @@
 /* General Reset */
 :root{
   --title-color: blue;
+  --title-li: rgb(182, 0, 182); 
   
 }
 
@@ -76,4 +77,7 @@ body, html {
 
 .breadcrumb-item + .breadcrumb-item::before {
   color: white !important;
+}
+.li-title{
+  color: var(--title-li);
 }

