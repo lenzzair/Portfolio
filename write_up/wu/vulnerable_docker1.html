@@ -492,8 +492,77 @@ tar cvzf ../docker.tar.gz .</code></pre>
                         <li><img src="./img/wget_docker_ci_vd.png" class="img-fluid" alt="image"></li>
                     </ul>
                 </li>
+                <li>Je dézip docker.tar.gz
+                    <ul>
+                        <pre><code class="language-bash">tar xvzf docker.tar.gz
+dpkg -i *.deb</code></pre>
+                    </ul>
+                </li>
             </ul>
+
+            <p class="my-5">On peut enfin utiliser une commande docker qui permet de prendre le contrôle totale de
+                l’hôte via un conteneur </p>
+
+            <h4>Principe:</h4>
+            <ul>
+                <li>Exécuter une commande docker a distance via l’API Docker</li>
+                <li>Lancer un nouveau conteneur via une image existante</li>
+                <li>Montage du système de fichiers: monte le système de fichier racine de l’hôte dans ce nouveau
+                    conteneur</li>
+                <li>Prendre le contrôle totale de ce conteneur et donc a tous les fichier de l’hôte </li>
+            </ul>
+
+            <pre><code class="language-bash">docker -H unix:///var/run/docker.sock run --rm  -it -v /:/host wordpress chroot /host bash</code></pre>
+
+            <fieldset class="fieldset_finale">
+                <legend><i class="bi bi-lightbulb-fill" style="color: yellow;"></i></legend>
+
+                <ol>
+                    <li><span class="semi-code"> docker -H unix:///var/run/docker.sock </span>
+                        <ol>
+                            <li><span style="color: red;">docker</span> : ligne de commande pour interagir avec Docker
+                            </li>
+                            <li><span style="color: red;">-H unix:///var/run/docker.sock </span>: Spécifique le socket
+                                Unix a utiliser pour communiquer avec le démon Docker </li>
+                        </ol>
+                    </li>
+                    <li><span style="color: red;">run</span>
+                        <ol>
+                            <li>Lance un nouveau conteneur a partir de l’image qui est utiliser pour le wordpress</li>
+
+                        </ol>
+                    </li>
+                    <li><span style="color: red;">-it</span>
+                        <ol>
+                            <li>-i : Interactif</li>
+                            <li>-t : Alloue un pseudo terminal pour qu’on puisse interagir avec le conteneur</li>
+                        </ol>
+                    </li>
+                    <li><span style="color: red;">-v /:/host</span>
+                        <ol>
+                            <li>Mount le système de fichier (/) de l’hôte dans le conteneur sous le chemin /host</li>
+                        </ol>
+                    </li>
+                    <li><span style="color: red;">wordpress</span>
+                        <ol>
+                            <li>chroot /host bash
+                                <ol>
+                                    <li>chroot : Change Root Directory. Change le répertoire racine pour /host</li>
+                                    <li>bash : Ouvre un shell interactif dans cet environnement </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </fieldset>
+
+            <p class="my-5">Et on obtiens le flag en hard {d867a73c70770e73b65e6949dd074285dfdee80a8db333a7528390f6}</p>
+            
+            <img src="./img/flag_finale_vd.png" class="img-fluid" alt="image finale">
         </section>
+
+        <h4>Merci pour vôtre lecture !</h4>
+        <p>La write up disponible aussi sur mon <a href="https://github.com/lenzzair/Write-Up">github</a> </p>
     </div>
 
 

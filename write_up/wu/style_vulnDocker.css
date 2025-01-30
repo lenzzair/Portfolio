@@ -39,3 +39,6 @@ legend {
     background-color: rgb(54, 54, 54);
     color: red;
 }
+.fieldset_finale ol{
+    text-align: left;
+}
