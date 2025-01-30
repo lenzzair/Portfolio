@@ -4,7 +4,8 @@ ul {
 }
 
 section {
-    margin-top: 7em;
+    margin-top: 9em !important;
+    border-top: solid 2 gray;
 }
 
 .para {
@@ -33,4 +34,8 @@ legend {
 }
 .etape4 li{
     text-align: left;
+}
+.semi-code{
+    background-color: rgb(54, 54, 54);
+    color: red;
 }

