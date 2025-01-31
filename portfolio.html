@@ -218,7 +218,7 @@
         <ul id="cards_anim">
 
             <li class="carte" id="carte_1">
-                <div class="carte_content">
+                <div class="carte_content container">
 
 
                     <p>L’administration réseau couvre la gestion, la supervision et la sécurisation des infrastructures
@@ -235,7 +235,7 @@
 
                 </div>
                 <figure class="card_compt img_card">
-                    <img src="./image/card_reseaux.webp" alt="Image réseaux">
+                    <img src="./image/card_reseaux.webp" alt="Image réseaux" class="img-fluid">
 
                 </figure>
 
@@ -243,7 +243,7 @@
 
             <li class="carte" id="carte_2">
 
-                <div class="carte_content">
+                <div class="carte_content container">
 
                     <p>Passionné par l'administration système, j'ai développé mes compétences à travers mes projets
                         personnels, notamment en gestion de serveurs Linux et en déploiement d'applications via Docker.
@@ -262,14 +262,14 @@
                 </div>
 
                 <figure class="card_compt img_card">
-                    <img src="./image/card_ad.webp" alt="Image réseaux">
+                    <img src="./image/card_ad.webp" alt="Image réseaux" class="img-fluid">
 
                 </figure>
 
             </li>
 
             <li class="carte" id="carte_3">
-                <div class="carte_content">
+                <div class="carte_content container">
 
                     <p>Compétences en développement web front-end et back-end, avec une maîtrise des bases de données et
                         des pratiques de sécurité. En 2e année de RT, j'ai renforcé mes compétences en HTML/CSS, PHP,
@@ -286,13 +286,13 @@
                 </div>
 
                 <figure class="card_compt img_card">
-                    <img src="./image/card_php.webp" alt="dev">
+                    <img src="./image/card_php.webp" alt="dev" class="img-fluid">
 
                 </figure>
             </li>
 
             <li class="carte" id="carte_4">
-                <div class="carte_content">
+                <div class="carte_content container">
                     <p>Compétences en pentesting, axées sur l'identification et l'exploitation de vulnérabilités. En 2e
                         année de RT, je développe mes compétences en sécurité offensive à travers des challenges, des
                         projets personnels et des événements spécialisés en cybersécurité. J'ai également conçu un
@@ -307,13 +307,13 @@
                     </div>
                 </div>
                 <figure class="card_compt img_card">
-                    <img src="./image/kali.webp" alt="Image kali">
+                    <img src="./image/kali.webp" alt="Image kali" class="img-fluid">
 
                 </figure>
             </li>
 
             <li class="carte" id="carte_5">
-                <div class="carte_content">
+                <div class="carte_content container">
 
                     <p>Compétences en scripting et programmation pour l'automatisation et la gestion de systèmes, avec
                         une appétence particulière pour Bash. En tant qu’étudiant en Réseaux et Télécoms, j’ai acquis
@@ -330,14 +330,14 @@
                     </div>
                 </div>
                 <figure class="card_compt img_card">
-                    <img src="./image/card_python.webp" alt="Image kali">
+                    <img src="./image/card_python.webp" alt="Image kali" class="img-fluid">
                 </figure>
                 <!-- 
  -->
             </li>
 
             <li class="carte" id="carte_6">
-                <div class="carte_content">
+                <div class="carte_content container">
                     <p>Bases en télécommunications, avec des notions sur les signaux et les transmissions, ainsi que
                         l'utilisation de MATLAB pour la modélisation et l’analyse de systèmes de communication.</p>
                     <div class="voirPlus" id="VoirPlus_6">
@@ -349,7 +349,7 @@
 
                 </div>
                 <figure class="card_compt img_card">
-                    <img src="./image/card_telecom.webp" alt="Image kali">
+                    <img src="./image/card_telecom.webp" alt="Image kali" class="img-fluid">
                     <div class="overlay" id="overlay_6">
 
                     </div>
@@ -545,71 +545,68 @@
     <section class="soft_skills">
 
         <h2>Softs Skills</h2>
-        <div class="container_ss">
 
-
-            <input type="radio" name="slide" id="c1" checked>
-            <label for="c1" class="card_ss">
-                <div class="row">
-                    <div class="icon">1</div>
-                    <div class="description">
-                        <h3>Travail en équipe</h3>
+        <div id="carouselExampleCaptions" class="carousel slide my-5">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./image/SS_tavailleequipe.webp" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Travail en équipe</h5>
                         <p>
-                        <ul>
-                            <li>Démontré à travers mes années de pratique du handball et de volley en compétition.
-                            </li>
-                            <li>Développé grâce à mes années de pratique du handball et du volley en compétition. Lors
-                                des compétitions CTF (Capture The Flag), telles qu'Insomni'hack et CSI Clusir, j'ai
-                                appris à collaborer avec d'autres participants, à partager nos connaissances techniques
-                                et à coordonner nos efforts pour atteindre des objectifs communs.</li>
-                        </ul>
+                            Démontré à travers mes années de pratique du handball et de volley en compétition.
+                            Développé grâce à mes années de pratique du handball et du volley en compétition. Lors des
+                            compétitions CTF (Capture The Flag), telles qu'Insomni'hack et CSI Clusir, j'ai appris à
+                            collaborer avec d'autres participants, à partager nos connaissances techniques et à
+                            coordonner nos efforts pour atteindre des objectifs communs.
                         </p>
                     </div>
                 </div>
-            </label>
-
-            <input type="radio" name="slide" id="c2">
-            <label for="c2" class="card_ss">
-                <div class="row">
-                    <div class="icon">2</div>
-                    <div class="description">
-                        <h3>Rigueur et discipline</h3>
+                <div class="carousel-item">
+                    <img src="./image/SS_discipline.webp" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Rigueur et disciplinel</h5>
                         <p>
-                        <ul>
-                            <li>PMM et SNU : Engagements valorisant l'autonomie et la discipline dans un cadre
-                                structuré.</li>
-                            <li>Certification Cisco CCNA1 : Validation de compétences en réseaux et cybersécurité, fruit
-                                d'un apprentissage rigoureux et structuré. Actuellement en préparation des
-                                certifications CCNA2 et Stormshield, reflétant un engagement constant dans le
-                                perfectionnement technique.</li>
-                        </ul>
+                            PMM et SNU : Engagements valorisant l'autonomie et la discipline dans un cadre structuré.
+                            Certification Cisco CCNA1 : Validation de compétences en réseaux et cybersécurité, fruit
+                            d'un apprentissage rigoureux et structuré. Actuellement en préparation des certifications
+                            CCNA2 et Stormshield, reflétant un engagement constant dans le perfectionnement technique.
                         </p>
                     </div>
                 </div>
-            </label>
-
-            <input type="radio" name="slide" id="c3">
-            <label for="c3" class="card_ss">
-                <div class="row">
-                    <div class="icon">3</div>
-                    <div class="description">
-                        <h3>Curiosité et Passion</h3>
+                <div class="carousel-item">
+                    <img src="./image/SS_curiosite.webp" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Curiosité et Passion</h5>
                         <p>
-                        <ul>
-                            <li>Passionné par la cybersécurité et les nouvelles technologies, je consacre une grande
-                                partie de mon temps libre à explorer ces domaines.</li>
-                            <li>Participation régulière à des CTF (Capture The Flag) et des activités de pentest,
-                                reflétant mon engagement et ma curiosité pour les défis techniques et la résolution de
-                                problèmes complexes.</li>
-                        </ul>
+
+                            Passionné par la cybersécurité et les nouvelles technologies, je consacre une grande partie
+                            de mon temps libre à explorer ces domaines.
+                            Participation régulière à des CTF (Capture The Flag) et des activités de pentest, reflétant
+                            mon engagement et ma curiosité pour les défis techniques et la résolution de problèmes
+                            complexes.
                         </p>
                     </div>
                 </div>
-            </label>
-
-
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-
 
 
     </section>

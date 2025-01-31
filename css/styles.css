@@ -1,10 +1,14 @@
 :root {
-    --index: 1;      /* Exemple de valeur */
-    --index0: 0;     /* Exemple de valeur */
-    --numcards: 6;   /* Exemple de valeur */
+    --index: 1;
+    /* Exemple de valeur */
+    --index0: 0;
+    /* Exemple de valeur */
+    --numcards: 6;
+    /* Exemple de valeur */
     --start-range: calc(var(--index0) / var(--numcards) * 100%);
     --end-range: calc(var(--index) / var(--numcards) * 100%);
 }
+
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
@@ -41,13 +45,16 @@ body {
 /*===========================================================*/
 .hero_image {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url("../image/hero-image2.webp") center/cover no-repeat fixed;
+        url("../image/hero-image2.webp") center/cover no-repeat fixed;
     min-height: 100vh;
 }
-.hero_texte h1, .hero_texte h2 {
+
+.hero_texte h1,
+.hero_texte h2 {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
     -webkit-text-stroke: 1px black;
 }
+
 .reseaux_sociaux a {
     width: 5.5rem;
     height: 5.5rem;
@@ -60,6 +67,7 @@ body {
     align-items: center;
     transition: 0.3s ease-in-out;
 }
+
 .reseaux_sociaux a:hover {
     transform: scale(1.2) translateY(-3px);
     box-shadow: 0 0 15px rgb(18, 16, 16);
@@ -82,12 +90,15 @@ body {
     transform: translateY(50px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
-.Apropos h2{
+
+.Apropos h2 {
     color: black !important;
 }
-.bio_img{
+
+.bio_img {
     width: 15em;
 }
+
 .show-animate .animate {
     opacity: 1;
     transform: translateY(0);
@@ -104,7 +115,8 @@ body {
     margin-top: 3em;
     border-bottom: 2px solid #2c2c2cb5;
 }
-.projets h3{
+
+.projets h3 {
     border-bottom: 2px solid #2c2c2cb5;
 }
 
@@ -112,15 +124,17 @@ body {
 
 .bouton_projet label {
 
-    background: linear-gradient(145deg, #6e7dff, #5560ea); /* Dégradé de bleu */
-   
- 
+    background: linear-gradient(145deg, #6e7dff, #5560ea);
+    /* Dégradé de bleu */
+
+
     cursor: pointer;
-   
+
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 5px;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); /* Ombre portée subtile */
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    /* Ombre portée subtile */
 }
 
 .bouton_projet label:hover {
@@ -128,9 +142,12 @@ body {
 }
 
 .bouton_projet label:active {
-    transform: scale(0.95); /* Réduire légèrement la taille du bouton au clic */
-    box-shadow: inset 2px 2px 15px rgba(0, 0, 0, 0.2); /* Ombre intérieure pour l'effet de clic */
+    transform: scale(0.95);
+    /* Réduire légèrement la taille du bouton au clic */
+    box-shadow: inset 2px 2px 15px rgba(0, 0, 0, 0.2);
+    /* Ombre intérieure pour l'effet de clic */
 }
+
 .bouton-actif {
     border: 3px solid #a90f0fd9 !important;
 
@@ -159,7 +176,7 @@ body {
 } */
 
 #to_update_1 {
-    
+
     border-radius: 5px;
     padding: 0.9em;
 
@@ -170,17 +187,21 @@ body {
 
     color: black !important;
     margin-top: 7em;
-    text-decoration: underline 2px solid #2c2c2cb5;;
+    text-decoration: underline 2px solid #2c2c2cb5;
+    ;
 
 }
 
-.conteneur_proj img{
+.conteneur_proj img {
     width: 25em;
     border-radius: 10px
 }
 
+/*===========================================================*/
+/*                     CARD                          */
+/*===========================================================*/
 
-
+/* Style général des cartes */
 .carte {
     --index0: calc(var(--index) - 1);
     /* 0-based index */
@@ -199,11 +220,45 @@ body {
     display: flex;
     justify-content: space-between;
     border: solid black 2px;
+    align-items: center;
     border-radius: 10px;
     background-color: aliceblue;
     overflow: visible;
 }
 
+/* Animation de la carte */
+.carte_content {
+    --start-range: calc(var(--index0) / var(--numcards) * 100%);
+    --end-range: calc((var(--index)) / var(--numcards) * 100%);
+
+    animation: scale 1s linear forwards;
+    animation-timeline: --cards-element-scrolls-in-body;
+    animation-range: exit-crossing var(--start-range) exit-crossing var(--end-range);
+    width: 50%;
+    padding: 2em;
+    overflow: visible;
+    /* Assurez-vous que ce n'est pas défini sur 'hidden' */
+}
+
+.carte_content h2 {
+    color: #2c3e50;
+    margin-top: -0.5em;
+}
+
+/* Modal */
+.modal {
+    position: fixed !important;
+    /* S'assure que le modal s'affiche correctement sur le reste de l'écran */
+    z-index: 1050;
+    /* Priorité d'affichage élevée pour le modal */
+}
+
+.modal-title {
+    color: black !important;
+    text-shadow: none !important;
+}
+
+/* Disposition générale pour les cartes */
 #cards_anim {
     --numcards: 6;
     view-timeline-name: --cards-element-scrolls-in-body;
@@ -212,31 +267,49 @@ body {
     align-items: center;
 }
 
-.carte_content {
-    --start-range: calc(var(--index0) / var(--numcards) * 100%);
-	--end-range: calc((var(--index)) / var(--numcards) * 100%);
-
-	animation: scale 1s linear forwards;
-	animation-timeline: --cards-element-scrolls-in-body;
-	animation-range: exit-crossing var(--start-range) exit-crossing var(--end-range);
-    width: 50%;
-    padding: 2em;
-    overflow: visible; /* Assurez-vous que ce n'est pas défini sur 'hidden' */
-    
+.img_card {
+    width: 25em;
+    height: auto;
 }
 
-.carte_content h2 {
-    color: #2c3e50;
-    margin-top: -0.5em;
-}
+/* Adaptation pour les écrans mobiles (jusqu'à 768px de large) */
+@media (max-width: 768px) {
+    #cards_anim {
+        --numcards: 6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.modal {
-    position: fixed !important; /* S'assure que le modal s'affiche correctement sur l'ensemble de l'écran */
-    z-index: 1050; /* Priorité d'affichage élevée pour le modal */
-}
-.modal-title{
-    color: black !important;
-    text-shadow: none !important;
+    .carte {
+        /* Empêcher la superposition et les effets sticky sur mobile */
+        position: relative;
+        width: 100%;
+        margin-bottom: 1em;
+        padding-top: 0;
+        /* Ajuster la taille des cartes sur mobile */
+        flex-direction: column;
+
+    }
+
+    .carte_content {
+        width: 100%;
+        /* Les cartes s'étendent sur toute la largeur */
+        padding: 1em;
+        /* Ajuster le padding sur mobile */
+    }
+
+    .img_card {
+        width: 25em;
+        height: auto;
+        margin-top: 1em;
+    }
+
+    /* Optionnel: ajuster l'animation si nécessaire */
+    .carte_content {
+        animation: none;
+        /* Pas d'animation sur mobile */
+    }
 }
 
 
@@ -245,36 +318,6 @@ body {
     color: #34495e;
     margin-bottom: 1em;
 }
-
-.label{
-    margin-top: 1em ;
-    background-color:#42A5F5  ;
-    width: 7em;
-    border: solid black 2px;
-    border-radius: 10px;
-    padding: 0.5em;
-    display: flex;
-    justify-content: center
-}
-
-.voirPlus input[type="radio"]{
-    display: none;
-} 
-input[type="radio"]:checked + .label{
-    background-color: #1976D2;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 0 15px rgba(25, 118, 210, 0.836);
-
-}   
-input[type="radio"]:hover + .label {
-    transform: scale(1.1); /* Agrandir légèrement le bouton */
-    background-color: #1E88E5; /* Changer la couleur de fond au survol */
-}
-input[type="radio"]:checked:hover + .label {
-    transform: scale(1.1);
-    background-color: #3F51B5; /* Un autre fond pour montrer que l'élément est sélectionné */
-}
-
 
 
 
@@ -322,143 +365,49 @@ input[type="radio"]:checked:hover + .label {
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
 }
+
 .bio .animate_1 {
-    transform: translateX(-100%) ;
+    transform: translateX(-100%);
     transition: transform 0.5s ease-out;
 }
+
 .bio .animate_2 {
-    transform: translateX(150%) ;
+    transform: translateX(150%);
     transition: transform 0.5s ease-out;
 }
-.bio.show-animate .animate{
-    transform: translateX(0) ;
+
+.bio.show-animate .animate {
+    transform: translateX(0);
 
 }
-section .animate{
+
+section .animate {
     transition: transform 0.7s ease-out;
-    
-}
-
-.container_ss {
-    height: 30em;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: start;
-    margin-top: 3em;
-}
-
-.card_ss {
-    width: 80px;
-    border-radius: .75rem;
-    background-size: cover;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 2rem;
-    margin: 0 10px;
-    display: flex;
-    align-items: flex-end;
-    transition: .6s cubic-bezier(.28,-0.03,0,.99);
-    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
-    position: relative;
-    
-    
-}
-.card_ss::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent sur toute la carte */
-    z-index: 1; /* S'assure que l'image reste visible en arrière-plan */
-    opacity: 0; /* Invisible par défaut */
-    transition: opacity 0.3s ease;
-}
-.card_ss:hover::before,
-.container_ss input:checked + label::before {
-    opacity: 1; /* Montre le fond sombre au survol ou si la carte est sélectionnée */
-}
-.card_ss > .row {
-    position: relative;
-    z-index: 2; /* Place le contenu au-dessus du fond semi-transparent */
-    color: white;
-    display: flex;
-    flex-wrap: nowrap;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ajoute une ombre au texte */
-    height: 30em;
-}
-.card_ss  .icon {
-    background: #223;
-    color: white;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
 
 }
-.card_ss .description {
+
+.soft_skills {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    overflow: hidden;
-    height: auto;
-    width: 28em;
-    opacity: 0;
-    transform: translateY(30px);
-    transition-delay: 0.3s;
-    transition: all 0.3s ease;
-    font-size: 1em;
-    color: white; /* Couleur adaptée au fond sombre */
-   /* Fond semi-transparent sous le texte */
-    padding: 1em;
-    border-radius: 1rem; /* Ajoute un contour arrondi */
-    z-index: 2; /* Place le texte au-dessus de l'image */
-   margin-left: 3em;
-}
-.description p {
-    color: #ddd; /* Texte secondaire légèrement éclairci */
-    padding-top: 5px;
-}
-.description h3 {
-    text-transform: uppercase;
-    color: white;
-}
-.container_ss input {
-    display: none;
-}
-.container_ss input:checked + label {
-    width: 40em;
-}
-
-.container_ss input:checked + label .description {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
-.card_ss[for="c1"] {
-    background-image: url('./../image/SS_tavailleequipe.webp');
-
-}
-.card_ss[for="c2"] {
-    background-image: url('./../image/SS_discipline.webp');
-}
-.card_ss[for="c3"] {
-    background-image: url('./../image/SS_curiosite.webp');
-}
-.soft_skills{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 4em 0;
     align-items: center;
+    margin-top: 6em;
 }
-.soft_skills h2 {
-    color: #2c3e50 !important;
+
+#carouselExampleCaptions {
+    width: 75%;
+    box-shadow: 0 0 15px rgb(18, 16, 16);
+   
+}
+
+.carousel-caption h5 {
+    color: red;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+.carousel-caption p {
+    font-size: 1.3em;
+}
+
+.carousel-caption  {
+    background-color: #2c3e50b6;
 }
