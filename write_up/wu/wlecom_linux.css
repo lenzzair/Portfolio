@@ -1,0 +1,11 @@
+ol {
+    text-align: left;
+    font-size: 1.3em;
+}
+.title-li{
+    color: red;
+}
+.semi-code{
+    background-color: rgb(54, 54, 54);
+    color: red;
+}

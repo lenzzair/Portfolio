@@ -12,9 +12,13 @@
 
     <script defer src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <script defer src="./../write_up.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
 
     <title>Write Up</title>
     <link rel="stylesheet" href="./../write_css.css">
+    <link rel="stylesheet" href="./../wu/wlecom_linux.css">
 </head>
 
 <body>
@@ -43,7 +47,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./../../cv/cv.html">Cv</a>
-                        </li> 
+                        </li>
                     </ul>
 
                 </div>
@@ -52,7 +56,7 @@
     </nav>
     <!-- Animation Background -->
     <div id="particles-js"></div>
-    <div class="centered-content">
+    <div class="centered-content container">
         <h1>Welcome Linux</h1>
         <p>Découvrez mes write up, de machine vulnhub ou autre CTF sur ctftime</p>
         <section class="content">
@@ -68,6 +72,80 @@
                     </nav>
 
                 </div>
+
             </div>
+
+            <h2>Contexte:</h2>
+
+            <p class="my-5">J'ai créé ce mini-challenge pour la journée des lycéens afin de leur faire découvrir le
+                département R&T
+                d'Annecy.<br>
+                Ils ont participé à un CTF ludique qui leur a permis d'explorer plusieurs thématiques étudiées dans le
+                BUT Réseaux & Télécoms, parcours Cybersécurité, telles que les réseaux, le web, les systèmes, la
+                cryptographie, etc.<br>
+                J'ai donc mis en place un challenge leur permettant de se familiariser avec l'interface de commande
+                Linux en utilisant certaines commandes spécifiques. Celles-ci leur permettaient de retrouver le mot de
+                passe d'un administrateur peu compétent qui l'avait dissimulé dans un fichier caché.</p>
+
+            <ol>
+                <li><span class="title-li"><strong>Objectif pédagogique</strong></span>
+                    <ul>
+                        <li>Les lycéen ont pu découvrir l'environnemment Linux et apprendre a utiliser les commandes de
+                            bases</li>
+                    </ul>
+                </li>
+                <li><span class="title-li"><strong>Exemple du challenge</strong></span>
+                    <ul>
+                        <li>Utilisation de <span class="semi-code"> ls </span> et comprendre le système de paramètre sur
+                            une commande <span class="semi-code"> ls -al </span></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="li-title"><strong>Utilisation de docker pour l'infra du challenge</strong></span>
+                    <ul>
+                        <li>Dockerfile:</li>
+                    </ul>
+                </li>
+            </ol>
+            <pre><code class="language-bash">
+FROM ubuntu:latest
+LABEL maintener="lenny@l-lambert"
+
+ENV USER=bob
+ENV PCNAME=pc_bob
+ENV HOME=/home/bob
+
+WORKDIR ${HOME}
+
+RUN useradd -m -s /bin/bash ${USER} && \
+    mkdir -p ${HOME} && \
+    chown -R ${USER}:root ${HOME}
+
+USER ${USER}
+RUN echo "export PS1=\"\\u@${PCNAME}:\\w\\$ \"" >> ${HOME}/.bashrc 
+
+RUN echo "Bienvenue dans ce mini challenge Linux! \n \nUn administrateur Réseau peu compétent a laissé son mot de passe dans .password.txt \nExplorez les commandes Linux pour trouver le Flag \n \n( Aide: cat guide.txt  )\n " > ${HOME}/welcom.txt && \
+    echo "cat ${HOME}/welcom.txt" >> ${HOME}/.profile && \
+    echo "\n \nBien joué vous avez reussi mon challenge ! \n \nVoici mon mot de passe = C3C1_3st_M0np@ssw0rd\n \n" > ${HOME}/.password.txt && chmod 400 ${HOME}/.password.txt && \
+    echo "ls        : afficher le contenu du répertoire courant" >> /home/bob/guide.txt && \
+    echo "ls -l     : afficher le contenu du répertoire courant, avec des infos sur les droits des fichiers" >> /home/bob/guide.txt && \
+    echo "ls -l xxx : afficher les droits du fichier xxx" >> /home/bob/guide.txt && \
+    echo "ls -al    : afficher le contenu du répertoire courant, y compris les fichiers cachés" >> /home/bob/guide.txt && \
+    echo "cat xxx   : afficher le contenu du fichier xxx" >> /home/bob/guide.txt && \
+    echo "pwd       : répertoire courant" >> /home/bob/guide.txt && \
+    echo "cd xxx    : se déplacer dans le répertoire xxx" >> /home/bob/guide.txt && \
+    echo "cd ..     : se déplacer vers le répertoire parent" >> /home/bob/guide.txt && \
+    echo "id        : identifiant du compte et groupes auquel il appartient" >> /home/bob/guide.txt && \
+    echo "uname -a  : informations sur le serveur: quelle distribution et version du kernel." >> /home/bob/guide.txt  
+
+RUN echo "source ${HOME}/.bashrc" >> ${HOME}/.profile
+
+
+CMD ["/bin/bash", "-l"]
+
+
+            </code></pre>
+
+
         </section>
     </div>
