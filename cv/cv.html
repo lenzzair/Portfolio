@@ -14,93 +14,118 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <script defer src="./../javascript.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <nav>
-        <div onclick="burgerMenu()" class="burger-menu-btn ">
-            <i class="fa-solid fa-bars"></i>
+    <nav class="navbar navbar fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">L2zCore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvaskNavbarLabel">L2zCore</h5>
+                    <button type="button" class="btn-close btn-close-blak" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Cv</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./../portfolio.html">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./../write_up/write_up.html">Write Up</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
         </div>
     </nav>
-    <div class="burger-menu">
-        <ul class="burger_liste_navbar">
-            <li><a href="cv_en.html">Anglais</a></li>
-            <li><a href="./../portfolio.html">Portfolio</a></li>
-        </ul>
-    </div>
-    </nav>
-    <div class="container">
-
-
-        <div class="content">
-            <aside class="left-column">
-
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar (Aside) -->
+            <aside class="col-lg-4 col-md-5 col-12">
+                <!-- Photo Profile -->
+                <header>
+                    <h2 class="responsive_title">Stage Technicien en Réseaux et Systèmes Informatique</h2>
+                    <h3 class="responsive_sub">Objectif: Intégrer le SI</h3>
+                </header>
                 <section class="photo-profile">
                     <img src="./../image/IMG_0950.webp" alt="Photo de profile" />
                 </section>
 
-                <section class="profile">
+                <!-- Profil -->
+                <section class="profile my-5">
                     <h2>P r o f i l</h2>
                     <div class="barre"></div>
-                    <p>Recherche d'alternance. Motivé, rigoureux et curieux.</p>
+                    <p class="mt-5">Recherche d'alternance. Motivé, rigoureux et curieux.</p>
                 </section>
 
+                <!-- Contact -->
                 <section class="contact">
                     <h2>C o n t a c t</h2>
                     <div class="barre"></div>
-                    <p><i class='bx bxs-map-pin'></i> 22 Avenue de la plaine, Annecy</p>
+                    <p class="mt-5"><i class='bx bxs-map-pin'></i> 22 Avenue de la plaine, Annecy</p>
                     <p><i class='bx bx-envelope'></i> <a
                             href="mailto:lenny.lambert4@gmail.com">lenny.lambertpro@gmail.com</a></p>
                     <p><i class='bx bx-phone'></i> 07 67 61 02 48</p>
                     <p><i class='bx bxs-car'></i> Permis B (avec voiture)</p>
                     <p><i class='bx bxs-calendar'></i> 19 ans</p>
-                    <p><i class='bx bxl-linkedin-square'></i> <a href="https://www.linkedin.com/in/lenny-lambert-0300992a0/">Lenny LAMBERT</a></p>
-                    <p><i class='bx bx-world'></i> <a href="http://l-lambert.fr">http://l-lambert.fr</a></p>
+                    <p><i class='bx bxl-linkedin-square'></i> <a
+                            href="https://www.linkedin.com/in/lenny-lambert-0300992a0/">Lenny LAMBERT</a></p>
+                    <p><i class='bx bx-world'></i> <a href="https://www.l-lambert.fr">https://www. l-lambert.fr</a></p>
                 </section>
 
-
-                <section class="interests">
+                <!-- Interests -->
+                <section class="interests my-5">
                     <h2>C e n t r e s <br> d ' i n t é r ê t</h2>
                     <div class="barre"></div>
                     <ul>
-                        <li><strong>Handball</strong> en <strong>compétition</strong>
-                            pendant 7 ans en équipe
+                        <li class="mt-5"><strong>Handball</strong> en <strong>compétition</strong> pendant 7 ans en
+                            équipe
                             départementale ce qui ma
-                            appris le <strong>travail d’équipe</strong> et
-                            l’esprit de <strong>compétition</strong></li>
+                            appris le <strong>travail d’équipe</strong> et l’esprit de <strong>compétition</strong></li>
                         <li>Participe activement au Labo RT</li>
-                        <li>Pratique du piano, qui m’a
-                            appris la <strong>rigueur</strong></li>
-                        <li>Volley et Course à Pied m’ont
-                            appris le <strong>dépassement de soi</strong></li>
-                            <li><strong>Cours de soutien</strong> pour les RT1</li>
+                        <li>Pratique du piano, qui m’a appris la <strong>rigueur</strong></li>
+                        <li>Volley et Course à Pied m’ont appris le <strong>dépassement de soi</strong></li>
+                        <li><strong>Cours de soutien</strong> pour les RT1</li>
                     </ul>
                 </section>
 
+                <!-- Languages -->
                 <section class="languages">
                     <h2>L a n g u e s :</h2>
                     <p>Anglais: B2</p>
                     <p>Espagnol: A2</p>
                 </section>
-
             </aside>
 
-
-
-            <main class="right-column">
-
-                <header class="right-column">
-                    <h1>Stage Technicien en Réseaux et
-                        Systèmes Informatique</h1>
+            <!-- Main Content (Right Column) -->
+            <main class="col-lg-8 col-md-7 col-12">
+                <header>
+                    <h1>Stage Technicien en Réseaux et Systèmes Informatique</h1>
                     <p>Objectif: Intégrer le SI</p>
                 </header>
-                <!-- photo de profile et profile actif que pour tel-->
+
+                <!-- Mobile Profile Section -->
                 <section class="photo-profile_res">
                     <img src="./../image/IMG_0950.webp" alt="Photo de profile" />
                     <h2 class="name">Lenny LAMBERT</h2>
@@ -108,22 +133,24 @@
 
                 <section class="profile_res">
                     <h2>P r o f i l</h2>
-                    <p>Recherche de stage et
-                        d’alternance. Motivé,
-                        rigoureux et curieux</p>
+                    <p>Recherche de stage et d’alternance. Motivé, rigoureux et curieux</p>
                 </section>
-                <!-- photo de profile et profile actif que pour tel-->
+
+                <!-- Education -->
                 <section class="formations">
                     <h2>F o r m a t i o n s</h2>
                     <div class="barre"></div>
                     <ul>
-                        <li>2023-2026 -<strong>Réseaux Informatique</strong> Télécomunication et <strong>Cybersécurité</strong> - IUT Annecy</li>
-                        <li>2022-2023 - Bac STI2D (spécialité <strong>Système d'Information Numérique</strong>) - Mention AB</li>
+                        <li>2023-2026 -<strong>Réseaux Informatique</strong> Télécommunication et
+                            <strong>Cybersécurité</strong> - IUT Annecy
+                        </li>
+                        <li>2022-2023 - Bac STI2D (spécialité <strong>Système d'Information Numérique</strong>) -
+                            Mention AB</li>
                         <li>2018 & 2021 - PSC1 (Diplôme de Premier Secours Civil de niveau 1)</li>
                     </ul>
                 </section>
 
-
+                <!-- Competencies -->
                 <section class="competences">
                     <h2>C o m p é t e n c e s</h2>
                     <div class="barre"></div>
@@ -131,10 +158,12 @@
                         <li>Concevoir un réseau informatique sécurisé pour une entreprise</li>
                         <ul>
                             <li>Infrastructure Windows et Linux</li>
-                            <li>Gestion <strong>Active Directory</strong>, GPO, seveur DNS, web, mail et Téléphonie IP</li>
-                            <li><strong>Virtualisation</strong> (Hper-V)</li>
-                            <li>Automatisation des systèmes avec <strong>PowerShell</strong> et <strong>Bash</strong></li>
-                            <li>Déploiement d'un réseaux sécurisé, NAT,  Spanning Tree, HSRP, OSPF ...</li>
+                            <li>Gestion <strong>Active Directory</strong>, GPO, serveur DNS, web, mail et Téléphonie IP
+                            </li>
+                            <li><strong>Virtualisation</strong> (Hyper-V)</li>
+                            <li>Automatisation des systèmes avec <strong>PowerShell</strong> et <strong>Bash</strong>
+                            </li>
+                            <li>Déploiement d'un réseau sécurisé, NAT, Spanning Tree, HSRP, OSPF ...</li>
                         </ul>
                         <li>Certification <strong>Cisco</strong> CCNA1</li>
                         <li>Certification <strong>Stormshield</strong> et <strong>CCNA2</strong> en cours</li>
@@ -154,17 +183,14 @@
                     </ul>
                 </section>
 
-
+                <!-- Experience -->
                 <section class="experience">
-
-
                     <h2>E x p é r i e n c e s</h2>
                     <div class="barre"></div>
                     <div class="auchan_xp xp">
                         <div class="info_auchan info">
                             <p>Aout 2022 - Actuellement</p>
                             <h4>Auchan Drive - Epagny</h4>
-
                         </div>
 
                         <div class="liste_auchan liste">
@@ -172,55 +198,17 @@
                             <ul>
                                 <li>Job étudiant à l’année</li>
                                 <li>Découverte du monde professionnel et adaptation à un environnement de travail
-                                    dynamique.
-                                </li>
+                                    dynamique.</li>
                                 <li>Réponse aux demandes des clients avec efficacité et courtoisie.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="pmm_xp xp">
-                        <div class="info_pmm info">
-                            <p>2021-2022</p>
-                            <h4>Gendarmerie d’Annecy</h4>
-                        </div>
-
-                        <div class="liste_pmm liste">
-                            <h3>Préparation militaire marine (PMM)</h3>
-                            <ul>
-                                <li>Participation à la préparation militaire marine, axée sur le développement des
-                                    compétences et valeurs militaires.</li>
-                                <li>Acquisition de la discipline, de l'honneur et de la capacité à travailler en
-                                    autonomie.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="snu_xp xp">
-                        <div class="info_snu info">
-                            <p>juillet 2021</p>
-                            <h4>Saint-Martin</h4>
-
-                        </div>
-                        <div class="liste_snu liste">
-                            <h3>Service National Universel (SNU)</h3>
-                            <ul>
-                                <li>Participation au Service National Universel.</li>
-                                <li>Développement de compétences civiques et sociales à travers des activités de
-                                    cohésion et
-                                    de service à la communauté.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-
+                    <!-- Autres expériences ici -->
                 </section>
-
-
-                
             </main>
-
+        </div>
+    </div>
 </body>
 
 </html>

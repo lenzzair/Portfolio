@@ -1,107 +1,34 @@
-.content {
-
-    display: flex;
-
-}
-
-/*        header        */
-.burger-menu-btn {
-
-    color: black;
-    font-size: 1.7rem;
-    margin-right: 1em;
-    display: flex;
-    flex-direction: row-reverse;
-    float: right;
-    padding-top: 1em;
-
-}
-
-.burger-menu-btn:hover {
-
-    cursor: pointer;
-}
-
-.burger-menu li a {
-
-    text-decoration: none;
-    color: #fff;
-}
-
-.burger-menu ul {
-    list-style-type: none;
-    overflow: hidden;
-}
-
-.burger-menu li {
-
-    padding: 0.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-}
-
-.burger-menu {
-    display: none;
-    position: absolute;
-    right: 2rem;
-    top: 65px;
-    width: 200px;
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(15px);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    height: 0px;
-
-}
-
-.burger-menu.open {
-
-    height: 150px;
-}
-
-.burger-menu {
-    display: block;
-
-}
-
-/*        header        */
-
-/*        main        */
 
 main {
     background-color: rgb(255, 255, 255);
-    width: 70%;
-    padding: 2em 0 0 5em;
-
+    padding: 2em;
 }
-.photo-profile_res{
+
+aside {
+    background-color: rgb(145, 177, 219);
+    padding: 2em;
+}
+
+.photo-profile_res {
     display: none;
     margin-top: 2.5em;
     text-align: center;
 }
-.photo-profile_res img{
-    
+
+.photo-profile_res img {
     width: 10em;
     height: auto;
     border-radius: 50%;
 }
-.profile_res{
-    display: none;
-}
-.profile_res p {
 
+.profile_res {
+    display: none;
     text-align: center;
 }
 
-
-/*        section      */
 section.formations {
     margin-top: 6em;
 }
-
 
 .xp {
     display: flex;
@@ -115,64 +42,41 @@ section.formations {
     width: 30em;
 }
 
-/*        section      */
-/*        main        */
-
-/*        aside       */
-
-aside {
-
-    background-color: rgb(145, 177, 219);
-    width: 30%;
-    padding: 2em;
-}
-
-aside section {
-    margin-top: 4.8em;
-}
-
-.profile p {
-
-    text-align: center;
-    font-size: 1.36em;
-    font-weight: bold;
-}
-.profile{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.contact a{
-    text-decoration: none;
-    color: black;
-}
-.contact a:hover{
-    color: #8b6c42;
-   
-}
-.contact i{
-    font-size: 1.2em;
-}
-.barre{
-    width: 8em;
-    height: 0.5em;
-    background-color:#8b6c42 ;
-
-}
 .photo-profile {
-
     display: flex;
     justify-content: center;
     margin-top: 2.5em;
 }
 
 .photo-profile img {
-
     width: 12em;
     height: auto;
     border-radius: 50%;
+}
 
+.barre {
+    width: 8em;
+    height: 0.5em;
+    background-color: #8b6c42;
+}
 
+.profile p {
+    text-align: center;
+    font-size: 1.36em;
+    font-weight: bold;
+}
+
+.contact a {
+    text-decoration: none;
+    color: black;
+}
+
+.contact a:hover {
+    color: #8b6c42;
+}
+
+.contact i {
+    font-size: 1.2em;
 }
 
 /*        aside       */
@@ -180,181 +84,92 @@ aside section {
 
 
 /*   Responsive design    */
+.responsive_title, .responsive_sub{
+    display: none;
+}
 
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (max-width:576px) {
+    .responsive_title, .responsive_sub{
+        display: block;
+    }
+    header h1, header p{
+        display: none;
+
+    }
+}
+
+@media print {
+
+    /* Réinitialiser les styles pour l'impression */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Définir la taille de la page et les marges */
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    @page {
+        size: A4;
+        margin: 1cm;
+    }
+
+    .photo-profile {
+        margin-top: 0.5em;
+    }
+
+    section.formations {
+        margin-top: 3em;
+    }
+
+    /* Réduire la taille des éléments pour qu'ils tiennent sur la page */
+    .xp {
+        font-size: 12px;
+        flex-direction: row;
+    }
+
+    .info,
+    .liste {
+        font-size: 12px;
+    }
+
     h1 {
-        font-size: 3.5em;
+        font-size: 22px;
     }
 
-    h2 {
-        font-size: 1.5em;
-    }
-
-    h3 {
-        font-size: 1em;
-    }
-
-    header p {
-        font-size: 1.5em;
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 18px;
     }
 
     aside {
         padding: 1em;
-        width: 35%;
-    }
-
-    main {
-        width: 65%;
-        padding: 1em 0 0 3em;
-    }
-
-    p {
-        font-size: 1em;
-    }
-
-    li {
-        font-size: 1em;
-    }
-
-    .photo-profile img {
-        width: 9em;
+        font-size: 19px;
 
     }
 
-    .xp {
-        flex-direction: column;
+    a {
+        text-decoration: none;
+        color: black;
     }
 
-    .burger-menu-btn {
-        margin-right: 0.2em;
+    /* Enlever les éléments qui ne sont pas nécessaires pour l'impression */
+    .burger-menu-btn,
+    .burger-menu {
+        display: none;
     }
 
+    /* Ajouter des styles pour les éléments qui doivent être imprimés */
+    .print-only {
+        display: block;
+    }
 }
-
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-    h1 {
-        font-size: 2em;
-    }
-
-    h2 {
-        font-size: 1.2em;
-    }
-
-    h3 {
-        font-size: 0.8em;
-    }
-    header p {
-        font-size: 1.3em;
-    }
-    p , li{
-        font-size: 0.9em;
-    }
-    .xp{
-        flex-direction: column;
-    }
-    .photo-profile img{
-        width: 7em;
-    }
-    aside{
-        width: 40%;
-    }
-    main{
-        width: 60%;
-        padding: 0.5;
-        padding: 1em 0 0 3em;
-    }
-    body{
-        width: fit-content;
-    }
-
-
-}
-
-
-    @media (max-width:576px) {
-
-        .content{
-            flex-direction: column-reverse;
-        }
-        main , aside{
-            width: 100%;
-        }
-        .xp{
-            flex-direction: column;
-        }
-        body{
-            width: fit-content;
-        }
-        .photo-profile, .profile{
-            display: none;
-        }
-        .photo-profile_res, .profile_res{
-            display: block;
-        }
-        .burger-menu {
-            left: 2rem;
-            width: unset;
-    
-        }
-
-    }
-
-    @media print {
-        /* Réinitialiser les styles pour l'impression */
-        * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-        
-        /* Définir la taille de la page et les marges */
-        body {
-          width: 100%;
-          height: 100%;
-          margin: 0;
-          padding: 0;
-        }
-        @page {
-          size: A4;
-          margin: 1cm;
-        }
-        .photo-profile{
-            margin-top: 0.5em;
-        }
-        section.formations{
-            margin-top: 3em;
-        }
-        /* Réduire la taille des éléments pour qu'ils tiennent sur la page */
-        .xp {
-          font-size: 12px;
-          flex-direction: row;
-        }
-        .info, .liste {
-          font-size: 12px;
-        }
-        h1{
-            font-size: 22px;
-        }
-        h2, h3, h4, h5, h6 {
-          font-size: 18px;
-        }
-        aside{
-            padding: 1em;
-            font-size: 19px;
-        
-        }
-        a{
-            text-decoration: none;
-            color: black;
-        }
-        /* Enlever les éléments qui ne sont pas nécessaires pour l'impression */
-        .burger-menu-btn, .burger-menu {
-          display: none;
-        }
-        
-        /* Ajouter des styles pour les éléments qui doivent être imprimés */
-        .print-only {
-          display: block;
-        }
-      }
