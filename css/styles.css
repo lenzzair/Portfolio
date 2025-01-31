@@ -66,135 +66,36 @@ body {
 }
 
 
-/*
-.reseaux_sociaux {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-
-}
-
-.reseaux_sociaux a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 5.5rem;
-    height: 5.5rem;
-    background: transparent;
-    border: 2px solid rgb(227, 11, 34);
-    font-size: 2.5rem;
-    border-radius: 50%;
-    margin: 1.5em 0 1.5em 1em;
-    color: rgb(227, 11, 34);
-    transition: 0.3s ease-in-out;
-}
-
-.reseaux_sociaux a:hover {
-    cursor: pointer;
-    transform: scale(1.2)translateY(-3px);
-    box-shadow: 0 0 15px rgb(18, 16, 16);
-
-}
-
-
-
-.hero_image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../image/hero-image2.webp");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    background-attachment: fixed;
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-
-}
-
-h1 {
-    color: aliceblue !important;
-    margin-top: 0em;
-    text-align: center;
-    padding-top: 2em;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    -webkit-text-stroke: 1px black;
-   
-}
-.hero_texte h2{
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    -webkit-text-stroke: 1px black;
-} */
-
-
-
-h2 {
-    color: aliceblue !important;
-    text-align: center;
-    
-}
 
 /*      Hero image      */
 
-/*  ==================COMPETENCES============================= */
+/*===========================================================*/
+/*                      A propos                             */
+/*===========================================================*/
 .bio {
-
-    margin-left: 5em;
-    display: flex;
-    flex-direction: column;
-    margin: 10em 0 0 0;
+    margin-top: 5rem;
 }
 
-.bio h2 {
-    color: black;
-    border-bottom: 2px solid #2c2c2cb5;
-    text-align: right;
-    width: 75%;
-    margin-left: 5em;
+/* Animation d'apparition avec un scroll */
+.animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.Apropos h2{
+    color: black !important;
+}
+.bio_img{
+    width: 15em;
+}
+.show-animate .animate {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.info_propos {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1em;
-}
-.bio_enssemble{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.bio p {
-    width: 70%;
-    margin-left: 2.5em;
-    text-align: center;
-    font-size: 1.2em;
-    border: 2px black solid;
-    border-radius: 0.5em;
-    background-color: rgb(43 117 234 / 33%);
-    padding: 1rem;
-    animation: reveal linear 5s;
-    animation-timeline: view();
-    animation-range-start: cover 0%;
-    animation-range-end: contain 50%;
-}
-
-.bio img {
-    width: 13em;
-    height: auto;
-    margin-right: 2em;
-    border-radius: 50%;
-}
-
-.projet_contenu {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-   
-}
+/*===========================================================*/
+/*                     PROJET                          */
+/*===========================================================*/
 
 .projets h2 {
     color: black;
@@ -207,68 +108,33 @@ h2 {
     border-bottom: 2px solid #2c2c2cb5;
 }
 
-.bouton_projet {
-    display: flex;
-    flex-direction: column;
-   
-    margin-left: 5em;
-}
+
 
 .bouton_projet label {
 
     background: linear-gradient(145deg, #6e7dff, #5560ea); /* Dégradé de bleu */
-    border: none;
-    color: white;
-    font-size: 16px;
-    margin: 3em 0 0 1em;
-    padding: 1em 2em;
-    border-radius: 3em;
+   
+ 
     cursor: pointer;
+   
     text-transform: uppercase;
     letter-spacing: 1px;
-    position: relative;
-    transition: all 0.3s ease;
+    border-radius: 5px;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1); /* Ombre portée subtile */
 }
 
 .bouton_projet label:hover {
-    background: linear-gradient(145deg, #5560ea, #6e7dff); /* Inverser le dégradé au survol */
-    transform: scale(1.05); /* Agrandissement au survol */
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
 }
-.bouton_projet label:focus {
-    outline: none; /* Enlever le contour par défaut */
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2); 
-}
+
 .bouton_projet label:active {
     transform: scale(0.95); /* Réduire légèrement la taille du bouton au clic */
     box-shadow: inset 2px 2px 15px rgba(0, 0, 0, 0.2); /* Ombre intérieure pour l'effet de clic */
 }
 .bouton-actif {
     border: 3px solid #a90f0fd9 !important;
-    transition: all 0.3s ease !important;
-}
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
 
-/* Animation continue de pulsation au survol */
-.bouton_projet label:hover {
-    animation: pulse 1.4s infinite; /* Appliquer l'animation de pulsation */
 }
-
-
 
 
 .bouton_projet input {
@@ -284,25 +150,18 @@ h2 {
     font-weight: bold;
 }
 
-.container {
+/* .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5em;
     margin-top: 3em;
-}
+} */
 
 #to_update_1 {
     
     border-radius: 5px;
     padding: 0.9em;
-
-
-}
-
-.affiche_projet {
-    width: 60%;
-    height: 25em;
 
 
 }
@@ -315,73 +174,11 @@ h2 {
 
 }
 
-.card_compt {
-    position: relative;
-    overflow: hidden;
-    margin: 1em;
-    width: 20em;
-    z-index: -1;
+.conteneur_proj img{
+    width: 25em;
+    border-radius: 10px
 }
 
-.card_compt img {
-    width: 20em;
-    height: auto;
-    background-size: cover;
-    border-radius: 10px;
-    z-index: -1;
-}
-
-.conteneur_proj {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 2em;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(15px);
-    opacity: 0;
-    transition: opacity 0.5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-}
-.overlay_card {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(15px);
-    opacity: 0;
-    transition: opacity 0.5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-}
-.overlay_card:hover{
-    opacity: 1;
-}
-.overlay li {
-    color: white;
-    font-size: 1em;
-    text-align: left;
-
-}
-
-.overlay_card .text {
-    color: white;
-    font-size: 1em;
-}
 
 
 .carte {
@@ -479,21 +276,7 @@ input[type="radio"]:checked:hover + .label {
 }
 
 
-@media (max-width: 768px) {
 
-    h1 {
-
-        font-size: 2.5em;
-    }
-
-    .burger-menu-btn {
-        display: flex;
-    }
-
-    .navbarre {
-        display: none;
-    }
-}
 
 @keyframes fadeIn {
     from {

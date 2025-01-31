@@ -37,7 +37,10 @@
                 easing: 'ease-in-out',
                 once: true,
             });
+
         });
+
+
 
 
     </script>
@@ -99,65 +102,89 @@
         </div>
 
     </div>
-    <section id="Apropos" class="bio show-animate">
-        <h2>A propos:</h2>
-        <div class="bio_enssemble">
-            <div class="info_propos animate_1 animate">
-                <p>Étudiant en 2e année de BUT <strong>Réseaux Informatiques</strong> , Télécommunications et
-                    <strong>cybersécurité</strong> à l'IUT d'Annecy, je
-                    suis à la recherche d'un <strong>stage</strong> ou d'une <strong>alternance</strong> pour mettre en
-                    pratique mes compétences techniques.
+    <section id="Apropos" class="bio container py-5">
+        <h2 class="text-end border-bottom border-2 pb-2">À propos:</h2>
+        <div class="row align-items-center mt-4">
+            <div class="col-md-6 animate_1 animate">
+                <p id="para_propos" class="border border-dark rounded p-4 text-center bg-primary bg-opacity-25">
+                    Étudiant en 2e année de BUT <strong>Réseaux Informatiques</strong>, Télécommunications et
+                    <strong>cybersécurité</strong> à l'IUT d'Annecy, je suis à la recherche d'un <strong>stage</strong>
+                    ou d'une
+                    <strong>alternance</strong> pour mettre en pratique mes compétences techniques.
                     Passionné par la cybersécurité et les <strong>nouvelles technologies</strong>, je suis motivé,
                     curieux
-                    et prêt à m'investir pleinement
-                    dans des <strong>projets concrets</strong> pour enrichir mon expérience professionnelle
+                    et prêt à m'investir pleinement dans des <strong>projets concrets</strong> pour enrichir mon
+                    expérience
+                    professionnelle.
                 </p>
-
             </div>
-            <div class="bio_img">
-                <img class="animate_2 animate" src="./image/IMG_0950.webp">
+            <div class="col-md-6 text-center">
+                <img id="img_propos" class="bio_img animate_2 animate rounded-circle img-fluid shadow-lg"
+                    src="./image/IMG_0950.webp" alt="Photo de Lenny Lambert">
             </div>
         </div>
     </section>
 
+
     <section id="projet" class="projets show-animate">
         <h2>Projets:</h2>
-        <div class="projet_contenu">
-            <div class="bouton_projet animate">
-                <label for="nom-projet1" class="bouton-actif" id="label_1">Réseaux d'entreprise</label>
-                <input id="nom-projet1" type="radio" name="radio_compt">
+        <div class="projet_contenu container mt-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="bouton_projet list-group">
+                        <input type="radio" id="nom-projet1" name="projet"
+                            class="list-group-item list-group-item-action" />
+                        <label for="nom-projet1" class="list-group-item list-group-item-action mt-5">Réseaux
+                            d'entreprise</label>
 
-                <label for="nom-projet2" id="label_2">Site Web</label>
-                <input id="nom-projet2" type="radio" name="radio_compt">
+                        <input type="radio" id="nom-projet2" name="projet"
+                            class="list-group-item list-group-item-action" />
+                        <label for="nom-projet2" class="list-group-item list-group-item-action mt-5">Site Web</label>
 
-                <label for="nom-projet3" class="nom-projet3">Serveur web</label>
-                <input id="nom-projet3" type="radio" name="radio_compt">
 
-                <label for="nom-projet4" class="nom-projet4">Application Android</label>
-                <input id="nom-projet4" type="radio" name="radio_compt">
+                        <input type="radio" id="nom-projet3" name="projet"
+                            class="list-group-item list-group-item-action" />
+                        <label for="nom-projet3" class="list-group-item list-group-item-action mt-5">Serveur web</label>
 
-                <label for="nom-projet5" class="nom-projet5">Développement d'une API</label>
-                <input id="nom-projet5" type="radio" name="radio_compt">
+                        <input type="radio" id="nom-projet4" name="projet"
+                            class="list-group-item list-group-item-action" />
+                        <label for="nom-projet4" class="list-group-item list-group-item-action mt-5">Applcation
+                            Android</label>
 
-                <label for="nom-projet6" class="nom-projet6">Création d'un CTF</label>
-                <input id="nom-projet6" type="radio" name="radio_compt">
+                        <input type="radio" id="nom-projet5" name="projet"
+                            class="list-group-item list-group-item-action" />
+                        <label for="nom-projet5" class="list-group-item list-group-item-action mt-5">Développement d'une
+                            API</label>
 
-            </div>
-            <div class="affiche_projet">
-                <div id="to_update_1">
-                    <h3 id="h3_update">Concevoir un réseau informatique sécurisé pour une entreprise:</h3>
-                    <p id="obj_update"><strong>Bilan Personnel:</strong></p>
-                    <p id="para_update">Dans le cadre de la SAÉ (Situation d'Apprentissage et d'Évaluation), ce projet
-                        consistait à concevoir un réseau informatique sécurisé pour une entreprise. L'objectif principal
-                        était de créer une infrastructure réseau fiable, évolutive et sécurisée, capable de protéger les
-                        données sensibles de l’entreprise tout en assurant un accès fluide aux ressources internes pour
-                        les employés</p>
-                    <div class="conteneur_proj">
-                        <h4 id="h4_update">Compétences aquises:</h4>
-                        <div class="card_compt card_reseaux">
+                        <input type="radio" id="nom-projet6" name="projet"
+                            class="list-group-item list-group-item-action" />
+                        <label for="nom-projet6" class="list-group-item list-group-item-action mt-5">Création d'un
+                            CTF</label>
 
-                            <img src="./image/card_infra.webp" alt="" id="img_id_1">
-                            <div class="overlay_card">
+                    </div>
+                </div>
+                <div class="affiche_projet col-md-8 my-5">
+                    <div id="to_update_1" class="card">
+                        <div class="card-header">
+                            <h3 id="h3_update">Concevoir un réseau informatique sécurisé pour une entreprise:</h3>
+                        </div>
+                        <div class="carte-body">
+                            <p id="obj_update"><strong>Bilan Personnel:</strong></p>
+                            <p id="para_update">Dans le cadre de la SAÉ (Situation d'Apprentissage et d'Évaluation), ce
+                                projet
+                                consistait à concevoir un réseau informatique sécurisé pour une entreprise. L'objectif
+                                principal
+                                était de créer une infrastructure réseau fiable, évolutive et sécurisée, capable de
+                                protéger
+                                les
+                                données sensibles de l’entreprise tout en assurant un accès fluide aux ressources
+                                internes
+                                pour
+                                les employés</p>
+
+                            <div class="conteneur_proj">
+                                <h4 id="h4_update">Compétences aquises:</h4>
+
                                 <div class="text" id="text_1">
                                     <ul>
                                         <li class='li_style'>Infrasture Windows et Linux:</li>
@@ -173,11 +200,15 @@
                                         </ul>
                                     </ul>
                                 </div>
+
+                                <img src="./image/card_infra.webp" alt="" id="img_id_1" class="img-fluid">
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -287,7 +318,8 @@
                     <p>Compétences en scripting et programmation pour l'automatisation et la gestion de systèmes, avec
                         une appétence particulière pour Bash. En tant qu’étudiant en Réseaux et Télécoms, j’ai acquis
                         des bases solides pour écrire des scripts Bash afin d’automatiser des tâches d’administration
-                        système sur tous les projet personnel que j'ai pu mener. J’utilise également Python et PowerShell pour divers projets personnels et
+                        système sur tous les projet personnel que j'ai pu mener. J’utilise également Python et
+                        PowerShell pour divers projets personnels et
                         académiques.</p>
                     <div class="voirPlus" id="VoirPlus_5">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -473,7 +505,8 @@
                             <li>Manipulation de fichiers, gestion des processus et extraction de données</li>
                             <li>Projet d’optimisation d’un Active Directory avec PowerShell</li>
                             <li>Projet d’optimisation d’un serveur Apache Linux avec Bash</li>
-                            <li>Développement d’une application mobile Android avec intégration d’une API créée en FastAPI python</li>
+                            <li>Développement d’une application mobile Android avec intégration d’une API créée en
+                                FastAPI python</li>
                         </ul>
                     </div>
                     <div class="modal-footer">
