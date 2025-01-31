@@ -1,3 +1,14 @@
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1e1e1e;
+        color: #ffffff;
+    }
+    pre[class*="language-"] {
+        background: #2d2d2d;
+    }
+}
+
 ul {
     text-align: left;
     margin-top: 1.5em;
@@ -42,3 +53,6 @@ legend {
 .fieldset_finale ol{
     text-align: left;
 }
+/* pre{
+    background-color: rgba(128, 128, 128, 0.219) !important;
+} */
