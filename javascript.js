@@ -12,7 +12,7 @@ BOUTON_PROJET_4.addEventListener("change", affiche_projet);
 BOUTON_PROJET_5.addEventListener("change", affiche_projet);
 BOUTON_PROJET_6.addEventListener("change", affiche_projet);
 
-alert("Bonjour, ceci est un site web en construction. Des changements auront lieu prochainement, et la version mobile n'est pas encore adaptée. Merci.");
+
 
 // Tableau des images à précharger
 const imagesToPreload = [
